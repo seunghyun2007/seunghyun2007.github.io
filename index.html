@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seunghyun | Portfolio</title>
+  <style>
+    /* Basic reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      color: #111827;
+      background: #f3f4f6;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 1.5rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: #e5e7eb;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    .hero {
+      padding: 3rem 1rem 2rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #4b5563;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: #374151;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid #111827;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+    }
+
+    .btn-primary {
+      background: #111827;
+      color: white;
+    }
+
+    .btn-outline {
+      background: white;
+      color: #111827;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    }
+
+    .avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #6366f1, #ec4899);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin: 0 auto;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+    }
+
+    section {
+      padding: 2.5rem 1rem;
+    }
+
+    section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.25rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      border: 1px solid #e5e7eb;
+    }
+
+    .card h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .tag-list {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem 2rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div><strong>Seunghyun</strong></div>
+        <div>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1>Hello, I'm Seunghyun 👋</h1>
+          <h2>Student / Developer / Creator</h2>
+          <p>
+            I like building things on the web and learning new technologies.
+            This is my portfolio where I share the projects I'm proud of and
+            track what I'm learning.
+          </p>
+          <div class="btn-row">
+            <a href="#projects" class="btn btn-primary">View my projects</a>
+            <a href="#contact" class="btn btn-outline">Contact me</a>
+          </div>
+        </div>
+        <div>
+          <div class="avatar">
+            S
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h3>Projects</h3>
+        <div class="card-grid">
+          <article class="card">
+            <h4>Project 1 Title</h4>
+            <p>Short description of what this project does, what you built it with, and why it's interesting.</p>
+            <div class="tag-list">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h4>Project 2 Title</h4>
+            <p>Another cool project. Replace these with real examples: apps, games, websites, school work, etc.</p>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">API</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h4>Project 3 Title</h4>
+            <p>As you build more stuff, keep this section updated. Your portfolio grows with you.</p>
+            <div class="tag-list">
+              <span class="tag">React</span>
+              <span class="tag">Frontend</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h3>About me</h3>
+        <p style="max-width: 640px; color: #4b5563;">
+          Write a short paragraph about yourself here: where you're from,
+          what you're studying, what kind of things you want to build,
+          and what you're currently learning. Keep it honest and specific.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h3>Contact</h3>
+        <p style="color: #4b5563; margin-bottom: 0.5rem;">
+          Feel free to reach out if you want to talk about a project or just say hi.
+        </p>
+        <p style="color: #111827;">
+          📧 Email: <a href="mailto:your-email@example.com">your-email@example.com</a>
+        </p>
+        <p style="color: #111827; margin-top: 0.25rem;">
+          💻 GitHub: <a href="https://github.com/seunghyun2007" target="_blank">github.com/seunghyun2007</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Seunghyun. All rights reserved.
+  </footer>
+
+  <script>
+    // Set current year automatically
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
