@@ -1,461 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    Portfolio of Seunghyun Kang
-    Focus: C++, Embedded Systems, Microcontrollers (Arduino/ESP32)
-  -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seunghyun Kang | Embedded Systems & C++ Student</title>
-  <meta
-    name="description"
-    content="Portfolio of Seunghyun Kang, an embedded systems and C++ student developer with experience in microcontrollers, mathematics, and science."
-  />
-
+  <title>Seunghyun Kang · Engineering Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio and learning journal of Seunghyun Kang, aspiring engineer exploring science, math, and technology through projects." />
   <link rel="stylesheet" href="style.css" />
+  <!-- Optional: Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Skip link for accessibility -->
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- ======================== HEADER / NAVIGATION ======================== -->
   <header class="site-header">
-    <div class="container nav-container">
-      <!-- Logo / Name -->
-      <a href="#hero" class="logo" aria-label="Go to top of page">
-        <span class="logo-mark">&lt;/&gt;</span>
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-dot"></span>
         <span class="logo-text">Seunghyun Kang</span>
-      </a>
-
-      <!-- Mobile navigation toggle -->
-      <button
-        class="nav-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-label="Toggle navigation menu"
-      >
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-        <span class="nav-toggle-bar"></span>
-      </button>
-
-      <!-- Primary navigation -->
-      <nav class="site-nav" aria-label="Primary">
-        <ul class="nav-list">
-          <li><a href="#about">About</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      </div>
+      <nav class="nav">
+        <a href="#hero">Home</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- ======================== MAIN CONTENT ======================== -->
-  <main id="main">
-    <!-- ======================== HERO SECTION ======================== -->
-    <section id="hero" class="hero" aria-labelledby="hero-title">
+  <main>
+    <!-- Section 1: Featured Main Project / Hero -->
+    <section id="hero" class="section hero">
       <div class="container hero-grid">
-        <!-- Hero text content -->
         <div class="hero-text">
-          <p class="hero-eyebrow">
-            Embedded Systems · C++ · Arduino &amp; ESP32 · Multilingual
+          <p class="eyebrow">Aspiring Engineer · Curious Learner</p>
+          <h1>Learning by building, one project at a time.</h1>
+          <p class="hero-body">
+            Hi, I’m <strong>Seunghyun Kang</strong>. I enjoy understanding the world through
+            science, mathematics, and small, hands-on projects. This website is a quiet
+            place to document what I’m trying, what works, and what doesn’t.
           </p>
 
-          <!-- You will customize this title & subtitle with me -->
-          <h1 id="hero-title">
-            Seunghyun Kang
-          </h1>
-
-          <p class="hero-subtitle">
-            I’m a student developer interested in embedded systems, C++, and microcontrollers,
-            building projects that connect code with the physical world in English, French, and Korean.
-          </p>
-
-          <!-- Hero Call-to-Action buttons -->
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">
-              View embedded projects
-            </a>
-            <a href="#contact" class="btn btn-outline">
-              Contact me
+          <div class="hero-project">
+            <h2 class="hero-project-title">Featured Project</h2>
+            <p class="hero-project-description">
+              A deeper look into one project I spent extra time with — including
+              messy notes, failed attempts, and what I eventually learned.
+            </p>
+            <!-- TODO: Replace href with your Notion page for the main / flagship project -->
+            <a class="button" href="https://www.notion.so/YOUR-MAIN-PROJECT" target="_blank" rel="noopener noreferrer">
+              Learn more on Notion
             </a>
           </div>
-
-          <!-- Compact, recruiter-friendly quick facts -->
-          <dl class="hero-meta">
-            <div class="hero-meta-item">
-              <dt>Focus</dt>
-              <dd>C++, embedded systems, microcontrollers (Arduino/ESP32)</dd>
-            </div>
-            <div class="hero-meta-item">
-              <dt>Education</dt>
-              <dd>
-                European Baccalaureate (France) · Incoming ISED student, Yonsei University
-              </dd>
-            </div>
-            <div class="hero-meta-item">
-              <dt>Languages</dt>
-              <dd>Korean · English · French</dd>
-            </div>
-          </dl>
         </div>
 
-        <!-- Side card: Technical snapshot -->
-        <aside class="hero-card" aria-label="Technical snapshot">
-          <div class="hero-card-inner">
-            <h2 class="hero-card-title">Technical Snapshot</h2>
-            <ul class="hero-card-list">
-              <li>
-                <span class="badge">Core</span>
-                <span>C++ · C · Basic Python</span>
-              </li>
-              <li>
-                <span class="badge">Microcontrollers</span>
-                <span>Arduino · ESP32 · Sensor integration</span>
-              </li>
-              <li>
-                <span class="badge">Concepts</span>
-                <span>Interrupts · Timers · Serial comms · PWM</span>
-              </li>
-              <li>
-                <span class="badge">Soft skills</span>
-                <span>Clear communication in English, French, and Korean</span>
-              </li>
-            </ul>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ======================== ABOUT SECTION ======================== -->
-    <section id="about" class="section about" aria-labelledby="about-title">
-      <div class="container section-grid">
-        <div>
-          <h2 id="about-title" class="section-title">About Me</h2>
-          <p class="section-intro">
-            I am a highly motivated and analytical student with a strong foundation in mathematics,
-            physics, and computer science. I enjoy working close to the hardware layer, using C++
-            and microcontrollers to build systems that interact with the real world.
+        <div class="hero-image-wrap">
+          <!-- TODO: Replace with a real hero image of you or your project -->
+          <img src="assets/hero-placeholder.jpg" alt="Seunghyun working on a project at a desk" class="hero-image" />
+          <p class="hero-caption">
+            Placeholder image — replace with a candid photo of you studying, prototyping, or thinking through a problem.
           </p>
-          <p>
-            My interests include embedded firmware, low-level debugging, and turning boards like the
-            Arduino and ESP32 into reliable devices. I pay attention to clean, readable code and
-            like documenting my work so that teammates and my future self can understand it easily.
-          </p>
-          <p>
-            Having studied in an international environment and speaking Korean, English, and French,
-            I am comfortable collaborating across cultures and accessing technical resources
-            in multiple languages.
-          </p>
-        </div>
-
-        <!-- Skills summary cards -->
-        <div class="about-skills">
-          <article class="card">
-            <h3 class="card-title">Technical Skills</h3>
-            <ul class="pill-list">
-              <li>C++ (OOP, basic STL)</li>
-              <li>Embedded C / C-style C++</li>
-              <li>Arduino &amp; ESP32</li>
-              <li>Serial, I2C &amp; SPI communication</li>
-              <li>Basic Linux &amp; CLI tools</li>
-              <li>Git &amp; GitHub</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3 class="card-title">Tools &amp; Workflow</h3>
-            <ul class="pill-list">
-              <li>VS Code / PlatformIO / Arduino IDE</li>
-              <li>Basic measurement tools (logic analyzers, etc.)</li>
-              <li>Version control with Git</li>
-              <li>Issue tracking &amp; project boards</li>
-              <li>Testing on small modules</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3 class="card-title">Strengths</h3>
-            <ul class="pill-list">
-              <li>Curious &amp; fast learner</li>
-              <li>Logical &amp; structured thinking</li>
-              <li>Clear technical communication</li>
-              <li>Attention to detail &amp; reliability</li>
-            </ul>
-          </article>
         </div>
       </div>
     </section>
 
-    <!-- ======================== EDUCATION SECTION ======================== -->
-    <section id="education" class="section education" aria-labelledby="education-title">
+    <!-- Section 2: Education & Qualifications -->
+    <section id="education" class="section education">
       <div class="container">
-        <header class="section-header">
-          <h2 id="education-title" class="section-title">Education Timeline</h2>
-          <p class="section-intro">
-            A quick overview of my academic journey, from the European Baccalaureate in France
-            to Integrated Science and Engineering at Yonsei University.
-          </p>
-        </header>
+        <h2>Education &amp; Background</h2>
+        <p class="section-intro">
+          I’m a South Korean student currently finishing my secondary education in France,
+          and preparing to study science and engineering at university.
+        </p>
 
-        <!-- Timeline wrapper -->
-        <div class="edu-timeline">
-          <!-- Arrow track -->
-          <div class="edu-timeline-track">
-            <div class="edu-timeline-arrow" aria-hidden="true"></div>
+        <div class="edu-grid">
+          <!-- About Me Card -->
+          <div class="edu-card">
+            <h3>About Me</h3>
+            <p><strong>Name:</strong> Seunghyun Kang</p>
+            <p><strong>Nationality:</strong> South Korean</p>
+            <p><strong>Email:</strong> <a href="mailto:ph3749205@gmail.com">ph3749205@gmail.com</a></p>
+            <p class="edu-note">
+              I enjoy exploring how mathematics, physics, and computing connect,
+              and I use small projects to test ideas and understand concepts more deeply.
+            </p>
+            <!-- Scrollable images for this card -->
+            <div class="edu-images-scroll">
+              <!-- TODO: Replace placeholder images with real photos -->
+              <img src="assets/edu-about-1.jpg" alt="Notebook and pen on a desk" />
+              <img src="assets/edu-about-2.jpg" alt="Close-up of math notes" />
+              <img src="assets/edu-about-3.jpg" alt="Laptop and textbook setup" />
+            </div>
           </div>
 
-          <!-- Timeline items -->
-          <div class="edu-timeline-items">
-            <!-- Item 1: Start of European Baccalaureate -->
-            <article class="edu-item">
-              <div class="edu-marker">
-                <span class="edu-dot"></span>
-                <span class="edu-year">2018</span>
-              </div>
-              <div class="edu-content">
-                <h3 class="edu-title">Start of European Baccalaureate</h3>
-                <p class="edu-subtitle">
-                  ÉCOLE INTERNATIONALE PACA MANOSQUE · Manosque, France
-                </p>
-                <p class="edu-body">
-                  Began secondary education in the European Baccalaureate programme, building a
-                  strong foundation in mathematics, physics, and languages.
-                </p>
-              </div>
-            </article>
+          <!-- Higher Education Card -->
+          <div class="edu-card">
+            <h3>Higher Education</h3>
+            <p><strong>Yonsei University</strong></p>
+            <p>Integrated Science &amp; Engineering</p>
+            <p>Start: March 2026 · Expected Graduation: 2030</p>
+            <p class="edu-note">
+              I’m looking forward to working with people who love asking questions,
+              building things, and combining ideas across disciplines.
+            </p>
+            <div class="edu-images-scroll">
+              <!-- TODO: Replace placeholder images with campus / related images -->
+              <img src="assets/edu-yonsei-1.jpg" alt="University campus style placeholder" />
+              <img src="assets/edu-yonsei-2.jpg" alt="Students walking on campus" />
+            </div>
+          </div>
 
-            <!-- Item 2: Graduation from European Baccalaureate -->
-            <article class="edu-item">
-              <div class="edu-marker">
-                <span class="edu-dot"></span>
-                <span class="edu-year">2025</span>
-              </div>
-              <div class="edu-content">
-                <h3 class="edu-title">European Baccalaureate Graduation</h3>
-                <p class="edu-subtitle">
-                  ÉCOLE INTERNATIONALE PACA MANOSQUE · Final score: 91.97%
-                </p>
-                <p class="edu-body">
-                  Completed the European Baccalaureate with excellent results, especially in
-                  Mathematics, Physics, and Chemistry.
-                </p>
-              </div>
-            </article>
+          <!-- Secondary Education Card -->
+          <div class="edu-card">
+            <h3>Secondary Education</h3>
+            <p><strong>European Baccalaureate Programme</strong></p>
+            <p>École Internationale PACA, Manosque</p>
+            <p>March 2018 – July 2025</p>
+            <p>Final Score: <strong>91.97%</strong></p>
+            <p class="edu-note">
+              I focused on high-level mathematics, physics, and chemistry,
+              and spent time in camps and research programmes to explore these areas further.
+            </p>
+            <div class="edu-images-scroll">
+              <!-- TODO: Replace placeholders with school-related photos -->
+              <img src="assets/edu-eb-1.jpg" alt="School building exterior" />
+              <img src="assets/edu-eb-2.jpg" alt="Classroom with desks" />
+              <img src="assets/edu-eb-3.jpg" alt="Books and stationery" />
+            </div>
+          </div>
 
-            <!-- Item 3: Yonsei ISED Admission -->
-            <article class="edu-item">
-              <div class="edu-marker">
-                <span class="edu-dot"></span>
-                <span class="edu-year">2026</span>
-              </div>
-              <div class="edu-content">
-                <h3 class="edu-title">Yonsei University – ISED</h3>
-                <p class="edu-subtitle">
-                  Integrated Science and Engineering
-                </p>
-                <p class="edu-body">
-                  Admitted to Yonsei University’s Integrated Science and Engineering programme,
-                  with a focus on embedded systems, C++, and interdisciplinary engineering.
-                </p>
-              </div>
-            </article>
+          <!-- Academic Focus Card -->
+          <div class="edu-card">
+            <h3>Academic Focus</h3>
+            <ul>
+              <li>High-level Mathematics (4P)</li>
+              <li>Advanced Mathematics (3P)</li>
+              <li>Physics (4P), Chemistry (4P)</li>
+            </ul>
+            <p class="edu-note">
+              These subjects gave me a strong foundation in analytical reasoning
+              and helped me appreciate both the beauty and practicality of math and science.
+            </p>
+            <div class="edu-images-scroll">
+              <!-- TODO: Replace placeholders with any math/physics imagery -->
+              <img src="assets/edu-math-1.jpg" alt="Handwriting formulas on paper" />
+              <img src="assets/edu-physics-1.jpg" alt="Physics diagrams in a notebook" />
+              <img src="assets/edu-chem-1.jpg" alt="Simple chemistry lab setup" />
+            </div>
+          </div>
+        </div>
 
-            <!-- Item 4: Future graduation milestone -->
-            <article class="edu-item edu-item-future">
-              <div class="edu-marker">
-                <span class="edu-dot edu-dot-hollow"></span>
-                <span class="edu-year">2030</span>
-              </div>
-              <div class="edu-content">
-                <h3 class="edu-title">Expected Graduation – Yonsei University</h3>
-                <p class="edu-subtitle">
-                  B.S. in Integrated Science and Engineering
-                </p>
-                <p class="edu-body">
-                  Working towards graduating with a strong profile in embedded systems, C++,
-                  and projects that bridge theoretical understanding with real hardware.
-                </p>
-              </div>
-            </article>
+        <div class="edu-grid edu-grid--two">
+          <!-- Awards & Exams Card -->
+          <div class="edu-card">
+            <h3>Awards & Exams</h3>
+            <ul class="compact-list">
+              <li>AP Chemistry — Score 5 (2025)</li>
+              <li>AP Calculus BC — Score 5 (2024)</li>
+              <li>SAT 1530 — 99th percentile (2024)</li>
+              <li>TOEFL 113 — C2 (2024)</li>
+              <li>French National Math Olympiad — 95th percentile (2024)</li>
+              <li>DALF C1 — 70.1% (2025)</li>
+              <li>Duke of Edinburgh’s Silver Medal (2024)</li>
+            </ul>
+            <p class="edu-note">
+              These results mean a lot to me, but I try to see them mainly as encouragement
+              to keep learning with curiosity and humility.
+            </p>
+            <div class="edu-images-scroll">
+              <!-- TODO: Replace placeholders with certificates / medals / exam vibes -->
+              <img src="assets/edu-awards-1.jpg" alt="Certificate folder on a desk" />
+              <img src="assets/edu-awards-2.jpg" alt="Close-up of a medal" />
+            </div>
+          </div>
+
+          <!-- Experiences & Skills Card -->
+          <div class="edu-card">
+            <h3>Experiences & Skills</h3>
+            <p><strong>Work & Research</strong></p>
+            <ul class="compact-list">
+              <li>Pharmacy Assistant (2022)</li>
+              <li>Computer Science Assistant at ITER (2023)</li>
+              <li>Neuroscience Research Camp, Dublin University (2023)</li>
+              <li>Mathematics Research Camp, Aix-Marseille University (2024)</li>
+              <li>Astronomy Science Camp – Saint Michel l'Observatoire (2024)</li>
+            </ul>
+            <p><strong>Skills</strong></p>
+            <ul class="compact-list">
+              <li>C++ (Intermediate)</li>
+              <li>MS Office (Advanced)</li>
+              <li>Languages: Korean (native), English (C2), French (C1)</li>
+            </ul>
+            <div class="edu-images-scroll">
+              <!-- TODO: Replace placeholders with work/research photos (non-identifying if needed) -->
+              <img src="assets/edu-work-1.jpg" alt="Computer workstation with code on screen" />
+              <img src="assets/edu-research-1.jpg" alt="Notebook and laptop at a research table" />
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ======================== PROJECTS SECTION ======================== -->
-    <section id="projects" class="section projects" aria-labelledby="projects-title">
+    <!-- Section 3: Side Projects -->
+    <section id="projects" class="section projects">
       <div class="container">
-        <header class="section-header">
-          <h2 id="projects-title" class="section-title">Selected Projects</h2>
-          <p class="section-intro">
-            A snapshot of three embedded and C++ projects. Replace the placeholders below with your
-            own work, GitHub links, and results.
-          </p>
-        </header>
+        <h2>Side Projects & Experiments</h2>
+        <p class="section-intro">
+          These are smaller projects, notes, and experiments that helped me learn.
+          Most of them are documented in more detail on Notion.
+        </p>
 
         <div class="project-grid">
-          <!-- Project 1 -->
+          <!-- Project Card 1 -->
           <article class="project-card">
-            <h3 class="project-title">[C++ Sensor Monitoring System]</h3>
-            <p class="project-tagline">
-              Real-time environmental data logger using an ESP32, multiple sensors, and a C++ state machine.
-            </p>
-            <ul class="project-details">
-              <li>Implemented a non-blocking data acquisition loop using C++ classes and timers.</li>
-              <li>Collected temperature, humidity, and light data and sent them via serial or Wi-Fi.</li>
-              <li>Focused on robust error handling and clear separation between hardware and logic layers.</li>
-            </ul>
-            <div class="project-meta">
-              <span class="project-pill">C++</span>
-              <span class="project-pill">ESP32</span>
-              <span class="project-pill">Sensors</span>
+            <div class="project-image-wrap">
+              <!-- TODO: Replace with actual thumbnail -->
+              <img src="assets/project-main-thumb-placeholder.jpg" alt="Main project thumbnail placeholder" />
             </div>
-            <div class="project-links">
-              <a href="#" class="text-link">View on GitHub (placeholder)</a>
+            <div class="project-content">
+              <h3>Main Featured Project</h3>
+              <p>
+                A deeper project where I tried to connect theory with practice.
+                The documentation includes mistakes, sketches, and gradual improvements.
+              </p>
+              <!-- Same URL as the hero featured project -->
+              <a class="project-link" href="https://www.notion.so/YOUR-MAIN-PROJECT" target="_blank" rel="noopener noreferrer">
+                Open full documentation on Notion →
+              </a>
             </div>
           </article>
 
-          <!-- Project 2 -->
+          <!-- Project Card 2 -->
           <article class="project-card">
-            <h3 class="project-title">[Arduino-based Motor Control]</h3>
-            <p class="project-tagline">
-              PWM-based motor control system with safety limits and simple PID-style tuning.
-            </p>
-            <ul class="project-details">
-              <li>Controlled DC motor speed using PWM and feedback from a rotary encoder.</li>
-              <li>Separated control logic from sensor reading and output drivers in modular C++ code.</li>
-              <li>Logged metrics over serial for tuning and performance analysis.</li>
-            </ul>
-            <div class="project-meta">
-              <span class="project-pill">C++</span>
-              <span class="project-pill">Arduino</span>
-              <span class="project-pill">PWM</span>
+            <div class="project-image-wrap">
+              <img src="assets/project-1-thumb-placeholder.jpg" alt="Electronics experiments placeholder" />
             </div>
-            <div class="project-links">
-              <a href="#" class="text-link">View on GitHub (placeholder)</a>
+            <div class="project-content">
+              <h3>Small Electronics Experiments</h3>
+              <p>
+                A collection of simple circuits and tests I used to understand
+                basic electronics. Includes working versions and failed attempts.
+              </p>
+              <!-- TODO: Replace with Notion URL for this project -->
+              <a class="project-link" href="https://www.notion.so/YOUR-ELECTRONICS-PAGE" target="_blank" rel="noopener noreferrer">
+                View notes and photos on Notion →
+              </a>
             </div>
           </article>
 
-          <!-- Project 3 -->
+          <!-- Project Card 3 -->
           <article class="project-card">
-            <h3 class="project-title">[Multilingual IoT Dashboard]</h3>
-            <p class="project-tagline">
-              Small web-based dashboard for monitoring an embedded device, in English, French, and Korean.
-            </p>
-            <ul class="project-details">
-              <li>Used an ESP32 to serve a lightweight web interface exposing sensor data.</li>
-              <li>Implemented a simple language toggle with translated labels.</li>
-              <li>Demonstrated both embedded implementation and multilingual communication skills.</li>
-            </ul>
-            <div class="project-meta">
-              <span class="project-pill">ESP32</span>
-              <span class="project-pill">C++</span>
-              <span class="project-pill">Web UI</span>
+            <div class="project-image-wrap">
+              <img src="assets/project-2-thumb-placeholder.jpg" alt="Math notes project placeholder" />
             </div>
-            <div class="project-links">
-              <a href="#" class="text-link">View on GitHub (placeholder)</a>
+            <div class="project-content">
+              <h3>Mathematics Notes & Mini Proofs</h3>
+              <p>
+                A quiet collection of problems, partial solutions,
+                and ideas that helped me understand certain topics more clearly.
+              </p>
+              <!-- TODO: Replace with Notion URL for this project -->
+              <a class="project-link" href="https://www.notion.so/YOUR-MATH-NOTES-PAGE" target="_blank" rel="noopener noreferrer">
+                Read the notes on Notion →
+              </a>
+            </div>
+          </article>
+
+          <!-- Project Card 4 -->
+          <article class="project-card">
+            <div class="project-image-wrap">
+              <img src="assets/project-3-thumb-placeholder.jpg" alt="Simulation project placeholder" />
+            </div>
+            <div class="project-content">
+              <h3>Simple Simulations</h3>
+              <p>
+                Small code experiments to simulate physical systems and visualise
+                what equations mean in practice.
+              </p>
+              <!-- TODO: Replace with Notion URL for this project -->
+              <a class="project-link" href="https://www.notion.so/YOUR-SIMULATIONS-PAGE" target="_blank" rel="noopener noreferrer">
+                See simulation logs on Notion →
+              </a>
             </div>
           </article>
         </div>
+
+        <p class="projects-note">
+          I will continue adding more projects over time. Each card above links
+          to a more detailed Notion page with many images and informal notes.
+        </p>
       </div>
     </section>
 
-    <!-- ======================== CONTACT SECTION ======================== -->
-    <section id="contact" class="section contact" aria-labelledby="contact-title">
+    <!-- Section 4: Contact -->
+    <section id="contact" class="section contact">
       <div class="container contact-grid">
         <div>
-          <h2 id="contact-title" class="section-title">Let’s Connect</h2>
+          <h2>Contact</h2>
           <p class="section-intro">
-            Whether you’re looking for an intern, a future junior engineer, or are simply curious
-            about my projects, I’d be happy to talk.
+            If you’d like to talk about projects, ideas, or opportunities,
+            I’d be happy to hear from you.
           </p>
           <ul class="contact-list">
             <li>
-              <span class="contact-label">Email</span>
-              <a href="mailto:ph3749205@gmail.com" class="contact-value">
-                ph3749205@gmail.com
+              <strong>Email:</strong>
+              <a href="mailto:ph3749205@gmail.com">ph3749205@gmail.com</a>
+            </li>
+            <li>
+              <strong>GitHub:</strong>
+              <!-- TODO: Replace with your actual GitHub profile -->
+              <a href="https://github.com/YOUR-GITHUB" target="_blank" rel="noopener noreferrer">
+                github.com/YOUR-GITHUB
               </a>
             </li>
             <li>
-              <span class="contact-label">GitHub</span>
-              <a href="https://github.com/seunghyun2007" target="_blank" rel="noopener" class="contact-value">
-                github.com/seunghyun2007
-              </a>
-            </li>
-            <li>
-              <span class="contact-label">LinkedIn</span>
-              <a href="https://www.linkedin.com/in/seunghyun-kang-176898281/" target="_blank" rel="noopener" class="contact-value">
-                linkedin.com/in/seunghyun-kang-176898281/
+              <strong>LinkedIn:</strong>
+              <!-- TODO: Replace with your actual LinkedIn profile -->
+              <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener noreferrer">
+                linkedin.com/in/YOUR-LINKEDIN
               </a>
             </li>
           </ul>
         </div>
 
-        <!-- Simple contact form (front-end only) -->
-        <form class="contact-form" action="mailto:ph3749205@gmail.com" method="post" enctype="text/plain">
-          <div class="form-row">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required />
-          </div>
-          <div class="form-row">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
-          </div>
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full">
-            Send message
-          </button>
-        </form>
+        <div class="contact-portrait">
+          <!-- TODO: Replace with a small, warm portrait of you -->
+          <img src="assets/portrait-placeholder.jpg" alt="Portrait of Seunghyun" />
+          <p class="portrait-caption">
+            Placeholder portrait — replace with a simple, relaxed photo that feels natural to you.
+          </p>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- ======================== FOOTER ======================== -->
   <footer class="site-footer">
-    <div class="container footer-content">
-      <p class="footer-copy">
-        © <span id="year"></span> Seunghyun Kang. All rights reserved.
-      </p>
-      <div class="footer-links">
-        <a href="https://github.com/seunghyun2007" target="_blank" rel="noopener">
-          GitHub
-        </a>
-        <span aria-hidden="true">·</span>
-        <a href="https://www.linkedin.com/in/seunghyun-kang-176898281/" target="_blank" rel="noopener">
-          LinkedIn
-        </a>
-      </div>
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Seunghyun Kang. Built with curiosity and many small steps.</p>
     </div>
   </footer>
 
-  <!-- ======================== SCRIPTS ======================== -->
   <script>
-    // Set the current year in the footer automatically
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Mobile navigation toggle behavior
-    const navToggle = document.querySelector(".nav-toggle");
-    const siteNav = document.querySelector(".site-nav");
-
-    navToggle.addEventListener("click", () => {
-      const isOpen = navToggle.getAttribute("aria-expanded") === "true";
-      navToggle.setAttribute("aria-expanded", String(!isOpen));
-      document.body.classList.toggle("nav-open");
-    });
-
-    // Close mobile menu when a nav link is clicked
-    siteNav.addEventListener("click", (event) => {
-      if (event.target.tagName === "A") {
-        document.body.classList.remove("nav-open");
-        navToggle.setAttribute("aria-expanded", "false");
-      }
-    });
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
