@@ -12,20 +12,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo">
-        <span class="logo-dot"></span>
-        <span class="logo-text">Seunghyun Kang</span>
-      </div>
-      <nav class="nav">
-        <a href="#hero">Home</a>
-        <a href="#education">Education</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<header class="site-header">
+  <div class="container header-inner">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <span class="logo-dot"></span>
+      <span class="logo-text">Seunghyun Kang</span>
     </div>
-  </header>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      ☰
+    </button>
+
+    <!-- NAV LINKS -->
+    <nav class="nav">
+      <a href="#hero">Home</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+
 
   <main>
     <!-- Section 1: Featured Main Project / Hero -->
@@ -196,21 +208,37 @@
 
           <!-- Project Card 2 -->
           <article class="project-card">
-            <div class="project-image-wrap">
-              <img src="assets/project-1-thumb-placeholder.jpg" alt="Electronics experiments placeholder" />
-            </div>
-            <div class="project-content">
-              <h3>Small Electronics Experiments</h3>
-              <p>
-                A collection of simple circuits and tests I used to understand
-                basic electronics. Includes working versions and failed attempts.
-              </p>
-              <!-- TODO: Replace with Notion URL for this project -->
-              <a class="project-link" href="https://www.notion.so/YOUR-ELECTRONICS-PAGE" target="_blank" rel="noopener noreferrer">
-                View notes and photos on Notion →
-              </a>
-            </div>
-          </article>
+  <div class="project-image-wrap">
+    <!-- Main thumbnail (can be a still image) -->
+    <img src="assets/project-electronics-thumb.jpg" alt="Electronics experiments thumbnail" />
+  </div>
+
+  <div class="project-content">
+    <h3>Small Electronics Experiments</h3>
+    <p>
+      A quiet collection of small circuits and tests. I used these to understand
+      basic electronics better and to make a few LEDs blink in a non-chaotic way.
+    </p>
+
+    <!-- NEW: scrollable media strip with video + images -->
+    <div class="project-media-scroll-wrap">
+      <div class="project-media-scroll">
+        <!-- Video -->
+        <video src="assets/ledproject.MOV" controls playsinline></video>
+
+        <!-- Images -->
+        <img src="assets/drinking1.jpeg" alt="Breadboard and LED circuit on my desk" />
+        <img src="assets/firstproject.MOV" alt="Close-up of a simple laser project" />
+      </div>
+      <span class="scroll-hint project-scroll-hint">← swipe →</span>
+    </div>
+
+    <a class="project-link" href="https://www.notion.so/YOUR-ELECTRONICS-PAGE" target="_blank" rel="noopener noreferrer">
+      View notes, mistakes, and photos on Notion →
+    </a>
+  </div>
+</article>
+
 
           <!-- Project Card 3 -->
           <article class="project-card">
@@ -272,26 +300,23 @@
             </li>
             <li>
               <strong>GitHub:</strong>
-              <!-- TODO: Replace with your actual GitHub profile -->
-              <a href="https://github.com/YOUR-GITHUB" target="_blank" rel="noopener noreferrer">
-                github.com/YOUR-GITHUB
+              <a href="https://github.com/seunghyun2007" target="_blank" rel="noopener noreferrer">
+                github.com/seunghyun2007
               </a>
             </li>
             <li>
               <strong>LinkedIn:</strong>
-              <!-- TODO: Replace with your actual LinkedIn profile -->
-              <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener noreferrer">
-                linkedin.com/in/YOUR-LINKEDIN
+              <a href="https://www.linkedin.com/in/seunghyun-kang-176898281/" target="_blank" rel="noopener noreferrer">
+                linkedin.com/in/seunghyun-kang-176898281/
               </a>
             </li>
           </ul>
         </div>
 
         <div class="contact-portrait">
-          <!-- TODO: Replace with a small, warm portrait of you -->
-          <img src="assets/portrait-placeholder.jpg" alt="Portrait of Seunghyun" />
+          <img src="assets/face4.jpeg" alt="Portrait of Seunghyun" />
           <p class="portrait-caption">
-            Placeholder portrait — replace with a simple, relaxed photo that feels natural to you.
+            You can probably guess what my favoite fruit is from this picture.
           </p>
         </div>
       </div>
@@ -300,7 +325,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> Seunghyun Kang. Built with curiosity and many small steps.</p>
+      <p>&copy; <span id="year"></span> Seunghyun Kang. Built with curiosity and many small headaches.</p>
     </div>
   </footer>
 
@@ -308,5 +333,14 @@
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.nav');
+
+  navToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
+
 </body>
 </html>

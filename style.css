@@ -74,12 +74,12 @@ a:hover {
   margin-bottom: 2.5rem;
 }
 
-/* Header */
+/* ============ HEADER BASE ============ */
 
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 50;
   backdrop-filter: blur(10px);
   background: rgba(244, 250, 246, 0.9);
   border-bottom: 1px solid rgba(209, 230, 221, 0.9);
@@ -88,9 +88,11 @@ a:hover {
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between;   /* desktop: logo left, nav right */
   padding: 0.9rem 0;
 }
+
+/* LOGO */
 
 .logo {
   display: flex;
@@ -102,44 +104,110 @@ a:hover {
   width: 14px;
   height: 14px;
   border-radius: 999px;
-  background: var(--bordeaux); /* tiny accent */
+  background: var(--bordeaux);
 }
 
 .logo-text {
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: 1rem;
+  color: var(--text-main);
 }
+
+/* NAV LINKS */
 
 .nav {
   display: flex;
-  gap: 1.6rem;
-  font-size: 0.92rem;
+  gap: 1.8rem;
 }
 
 .nav a {
   color: var(--text-soft);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.25rem 0;
   position: relative;
-  padding-bottom: 0.2rem;
 }
 
 .nav a::after {
   content: "";
   position: absolute;
+  bottom: -3px;
   left: 0;
-  bottom: 0;
-  width: 0;
   height: 2px;
+  width: 0%;
   background: var(--accent);
   transition: width 0.18s ease-out;
-}
-
-.nav a:hover {
-  color: var(--text-main);
 }
 
 .nav a:hover::after {
   width: 100%;
 }
+
+/* HAMBURGER BUTTON (hidden on desktop) */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ============ MOBILE HEADER ============ */
+
+@media (max-width: 1150px) {
+
+  .header-inner {
+    padding: 0.7rem 0;
+    justify-content: center;     /* center content horizontally */
+    position: relative;          /* so burger can be positioned on the right */
+  }
+
+  /* Center the logo */
+  .logo {
+    margin: 0 auto;
+  }
+
+  /* Burger absolutely positioned on right */
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    right: 1.5rem;              /* distance from right edge */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Collapse nav into dropdown */
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    gap: 1rem;
+
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid rgba(209, 230, 221, 0.9);
+
+    padding: 1.2rem 1.6rem;
+
+    transform: translateY(-140%);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease;
+  }
+
+  .nav.active {
+    transform: translateY(0%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+
+
 
 /* Hero */
 
@@ -482,60 +550,115 @@ a:hover {
 
 /* Responsive */
 
-/* Desktop / larger screens (default is hero-desktop.jpg) */
-
-/* Mobile-specific background image */
-
-
-
-@media (max-width: 640px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
-  }
-
-  .nav {
-    gap: 1rem;
-    font-size: 0.88rem;
-    flex-wrap: wrap;
-  }
-
-  .hero h1 {
-    font-size: 1.7rem;
-  }
-
-  .section {
-    padding: 3.2rem 0;
-  }
-}
-
 /* ===========================================
-   EDUCATION — MOBILE OPTIMIZED
-   For screens below 768px
+   MAIN MOBILE LAYOUT — phones & small tablets
+   (everything below 768px)
 =========================================== */
 @media (max-width: 768px) {
 
-  /* Stack cards vertically */
+    /* SIDE PROJECTS — MOBILE LAYOUT */
+  .project-grid {
+    grid-template-columns: 1fr;   /* 1 column on mobile */
+    gap: 1.6rem;                  /* slightly tighter spacing */
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
+
+  .project-image-wrap img {
+    height: 200px;                /* a bit taller on mobile if you like */
+  }
+
+
+  /* HEADER */
+  .header-inner {
+    padding: 0.7rem 0;
+    justify-content: center;
+    position: relative;
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    gap: 1rem;
+
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid rgba(209, 230, 221, 0.9);
+
+    padding: 1.2rem 1.6rem;
+    transform: translateY(-140%);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease;
+  }
+
+  .nav.active {
+    transform: translateY(0%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* HERO */
+  .hero-inner {
+    padding: 2.5rem 1.4rem 2.8rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  /* GENERAL SECTIONS */
+  .section {
+    padding: 3.2rem 0;
+  }
+
+  /* EDUCATION LAYOUT */
   .edu-grid,
   .edu-grid--two {
     grid-template-columns: 1fr;
-    gap: 1.8rem;                    /* more space between cards */
+    gap: 1.8rem;
   }
 
-  /* Make cards feel like soft containers */
-  .edu-card {
-    padding: 1.4rem 1.3rem;
-    border-radius: 18px;
-    box-shadow: 0 12px 26px rgba(0,0,0,0.05);
-    background: #ffffffee;         /* slightly translucent white */
-    backdrop-filter: blur(3px);
-  }
+  /* Fix spacing when images appear at top of education cards */
+.edu-card .edu-images-scroll {
+  margin-top: -0.2rem;      /* slightly pulls images up */
+  margin-bottom: 1.1rem;    /* space between images and title */
+}
 
-  .edu-card h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.6rem;
-  }
+/* Add spacing under titles (because description comes next) */
+.edu-card h3 {
+  margin-top: 0.2rem;
+  margin-bottom: 0.65rem;  /* clean spacing between title + description */
+}
+
+/* Optional: slightly larger title for better hierarchy */
+.edu-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* Slight padding inside cards so top image isn't touching edge */
+.edu-card {
+  padding-top: 1.6rem;      /* more comfortable top padding */
+}
+
 
   .edu-card p,
   .edu-card li {
@@ -549,7 +672,6 @@ a:hover {
     line-height: 1.55;
   }
 
-  /* Scrollable images look cleaner + bigger */
   .edu-images-scroll {
     gap: 0.75rem;
     padding-bottom: 0.4rem;
@@ -557,19 +679,20 @@ a:hover {
   }
 
   .edu-images-scroll img {
-    height: 300px;                  /* perfect medium mobile size */
+    height: 300px;
     flex: 0 0 auto;
     border-radius: 14px;
     object-fit: cover;
   }
 
-  /* Section spacing */
-  .section.education {
-    padding-top: 3.2rem;
-    padding-bottom: 3.2rem;
+  /* PROJECTS & CONTACT grids → single column */
+  .project-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
   }
 
-  /* Section intro spacing */
+  /* Section intro text */
   .section-intro {
     margin-bottom: 1.8rem;
     font-size: 1rem;
@@ -578,7 +701,7 @@ a:hover {
 }
 
 /* ===========================================
-   EXTRA — SMALL PHONES (iPhone SE, 13 mini)
+   EXTRA SMALL PHONES — below 480px
 =========================================== */
 @media (max-width: 480px) {
 
@@ -592,11 +715,49 @@ a:hover {
   }
 
   .edu-images-scroll img {
-    height: 250px;                 /* slightly smaller thumbnails */
+    height: 250px;
   }
 
   .section.education {
     padding-top: 2.8rem;
     padding-bottom: 2.8rem;
   }
+}
+
+
+/* ================================
+   PROJECT MEDIA STRIP (CLEAN VERSION)
+================================ */
+
+.project-media-scroll-wrap {
+  margin-top: 0.9rem;
+}
+
+/* horizontal scroll strip — NO gradient, NO mask */
+.project-media-scroll {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.3rem 0 0.4rem;
+  scroll-behavior: smooth;
+}
+
+/* media items inside strip */
+.project-media-scroll img,
+.project-media-scroll video {
+  flex: 0 0 auto;
+  height: 450px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid rgba(191, 227, 192, 0.8);  /* soft pastel green border */
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08); /* soft shadow */
+}
+
+/* Swipe hint */
+.project-scroll-hint {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  text-align: center;
+  opacity: 0.7;
 }
