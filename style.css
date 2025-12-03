@@ -1,3 +1,4 @@
+
 :root {
   --bg: #f4faf6;              /* slightly tinted with green */
   --card-bg: #ffffff;
@@ -142,51 +143,88 @@ a:hover {
 
 /* Hero */
 
+/* HERO SECTION USING <img> INSTEAD OF CSS BACKGROUND */
+/* HERO BASE */
 .hero {
-  padding-top: 3rem;
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  overflow: hidden;
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 3rem;
-  align-items: center;
+/* Picture + image fill the hero */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
 }
 
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.75rem;
-  color: var(--text-soft);
-  margin-bottom: 0.45rem;
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dark gradient overlay for readability */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.55),
+    rgba(15, 23, 42, 0.20),
+    rgba(255, 255, 255, 0.00)
+  );
+  z-index: -1;
+}
+
+/* Text area anchored near the bottom */
+.hero-inner {
+  position: relative;
+  width: 100%;
+  padding: 3rem 1.5rem 3.5rem;
+}
+
+.hero-copy {
+  max-width: 640px;
+  color: #f9fafb;
 }
 
 .hero h1 {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
   margin: 0 0 1rem;
 }
 
 .hero-body {
-  color: var(--text-soft);
-  margin-bottom: 1.8rem;
+  color: rgba(241, 245, 249, 0.9);
+  margin-bottom: 1.6rem;
 }
 
-.hero-project {
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--accent-soft), #ffffff);
-  padding: 1.3rem 1.4rem;
-  border: 1px solid rgba(148, 163, 184, 0.25);
+/* Featured project card */
+.hero-project--on-image {
+  background: rgba(244, 250, 246, 0.92);
+  color: #0f172a;
+  border-radius: 18px;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid rgba(191, 227, 192, 0.9);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.35);
 }
 
-.hero-project-title {
-  font-size: 1.1rem;
-  margin: 0 0 0.3rem;
+/* Small tweaks for smaller screens */
+@media (max-width: 768px) {
+  .hero-inner {
+    padding: 2.5rem 1.4rem 2.8rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
 }
 
-.hero-project-description {
-  margin: 0 0 0.9rem;
-  color: var(--text-soft);
-}
+
 
 .button {
   display: inline-flex;
@@ -444,24 +482,11 @@ a:hover {
 
 /* Responsive */
 
-@media (max-width: 900px) {
-  .hero-grid,
-  .contact-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
+/* Desktop / larger screens (default is hero-desktop.jpg) */
 
-  .hero-image-wrap {
-    order: -1;
-  }
+/* Mobile-specific background image */
 
-  .project-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
 
-  .edu-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
 
 @media (max-width: 640px) {
   .header-inner {
@@ -482,5 +507,96 @@ a:hover {
 
   .section {
     padding: 3.2rem 0;
+  }
+}
+
+/* ===========================================
+   EDUCATION — MOBILE OPTIMIZED
+   For screens below 768px
+=========================================== */
+@media (max-width: 768px) {
+
+  /* Stack cards vertically */
+  .edu-grid,
+  .edu-grid--two {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;                    /* more space between cards */
+  }
+
+  /* Make cards feel like soft containers */
+  .edu-card {
+    padding: 1.4rem 1.3rem;
+    border-radius: 18px;
+    box-shadow: 0 12px 26px rgba(0,0,0,0.05);
+    background: #ffffffee;         /* slightly translucent white */
+    backdrop-filter: blur(3px);
+  }
+
+  .edu-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .edu-card p,
+  .edu-card li {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .edu-note {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  /* Scrollable images look cleaner + bigger */
+  .edu-images-scroll {
+    gap: 0.75rem;
+    padding-bottom: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .edu-images-scroll img {
+    height: 300px;                  /* perfect medium mobile size */
+    flex: 0 0 auto;
+    border-radius: 14px;
+    object-fit: cover;
+  }
+
+  /* Section spacing */
+  .section.education {
+    padding-top: 3.2rem;
+    padding-bottom: 3.2rem;
+  }
+
+  /* Section intro spacing */
+  .section-intro {
+    margin-bottom: 1.8rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+}
+
+/* ===========================================
+   EXTRA — SMALL PHONES (iPhone SE, 13 mini)
+=========================================== */
+@media (max-width: 480px) {
+
+  .edu-card {
+    padding: 1.2rem 1.1rem;
+    border-radius: 16px;
+  }
+
+  .edu-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .edu-images-scroll img {
+    height: 250px;                 /* slightly smaller thumbnails */
+  }
+
+  .section.education {
+    padding-top: 2.8rem;
+    padding-bottom: 2.8rem;
   }
 }

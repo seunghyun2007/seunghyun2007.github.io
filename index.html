@@ -29,38 +29,45 @@
 
   <main>
     <!-- Section 1: Featured Main Project / Hero -->
-    <section id="hero" class="section hero">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <p class="eyebrow">Aspiring Engineer · Curious Learner</p>
-          <h1>Learning by building, one project at a time.</h1>
-          <p class="hero-body">
-            science, mathematics, and small, hands-on projects. This website is a quiet
-            place to document what I'm trying, what works, and what doesn't.
-          </p>
+<section id="hero" class="hero">
 
-          <div class="hero-project">
-            <h2 class="hero-project-title">Featured Project</h2>
-            <p class="hero-project-description">
-              A deeper look into one project I spent extra time with — including
-              messy notes, failed attempts, and what I eventually learned.
-            </p>
-            <!-- TODO: Replace href with your Notion page for the main / flagship project -->
-            <a class="button" href="https://www.notion.so/YOUR-MAIN-PROJECT" target="_blank" rel="noopener noreferrer">
-              Learn more on Notion
-            </a>
-          </div>
-        </div>
+  <!-- One picture element that swaps image by screen size -->
+  <picture class="hero-media">
+    <!-- Mobile first: used when viewport ≤ 768px -->
+    <source srcset="assets/walking2.jpeg" media="(max-width: 768px)">
+    <!-- Default / desktop image -->
+    <img src="assets/walking3.jpg" alt="Seunghyun walking outdoors" class="hero-img">
+  </picture>
 
-        <div class="hero-image-wrap">
-          <!-- TODO: Replace with a real hero image of you or your project -->
-          <img src="assets/catandme.JPG" alt="Seunghyun working on a project at a desk" class="hero-image" />
-          <p class="hero-caption">
-            Placeholder image — replace with a candid photo of you studying, prototyping, or thinking through a problem.
-          </p>
-        </div>
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">Aspiring Engineer · Curious Learner</p>
+      <h1>Learning by building, one project at a time.</h1>
+      <p class="hero-body">
+        Hi, I'm <strong>Seunghyun Kang</strong>. I enjoy understanding the world through
+        science, mathematics, and small, hands-on projects. This website is a quiet
+        place to document what I'm trying, what works, and what doesn't.
+      </p>
+
+      <div class="hero-project hero-project--on-image">
+        <h2 class="hero-project-title">Featured Project</h2>
+        <p class="hero-project-description">
+          A deeper look into one project I spent extra time with — including
+          messy notes, failed attempts, and what I eventually learned.
+        </p>
+        <a class="button" href="https://www.notion.so/YOUR-MAIN-PROJECT" target="_blank" rel="noopener noreferrer">
+          Learn more on Notion
+        </a>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
+
+
 
     <!-- Section 2: Education & Qualifications -->
     <section id="education" class="section education">
@@ -68,107 +75,68 @@
         <h2>Education &amp; Background</h2>
         <p class="section-intro">
           I'm a South Korean student currently finishing my secondary education in France,
-          and preparing to study science and engineering at university.
+          and preparing to study science and engineering at Yonsei University.
         </p>
 
         <div class="edu-grid">
           <!-- About Me Card -->
           <div class="edu-card">
             <h3>About Me</h3>
-            <p><strong>Name:</strong> Seunghyun Kang</p>
-            <p><strong>Nationality:</strong> South Korean</p>
-            <p><strong>Email:</strong> <a href="mailto:ph3749205@gmail.com">ph3749205@gmail.com</a></p>
             <p class="edu-note">
-              I enjoy exploring how mathematics, physics, and computing connect,
-              and I use small projects to test ideas and understand concepts more deeply.
+              Hey, I'm Seunghyun. 
+              Check out some random photos of me below. I always enjoyed making stuff as a kid.
             </p>
             <!-- Scrollable images for this card -->
             <div class="edu-images-scroll">
               <!-- TODO: Replace placeholder images with real photos -->
-              <img src="assets/catandme.JPG" alt="Notebook and pen on a desk" />
-              <img src="assets/catandme.JPG" alt="Close-up of math notes" />
-              <img src="assets/catandme.JPG" alt="Laptop and textbook setup" />
+              <img src="assets/face3.jpeg" alt="Face" />
+              <img src="assets/seoul1.jpeg" alt="Holding an album" />
+              <img src="assets/running.jpeg" alt="Running" />
+              <img src="assets/makinghat.jpg" alt="Making a hat" />
+              <span class="scroll-hint">← swipe →</span>
+
             </div>
           </div>
 
           <!-- Higher Education Card -->
           <div class="edu-card">
-            <h3>Higher Education</h3>
-            <p><strong>Yonsei University</strong></p>
-            <p>Integrated Science &amp; Engineering</p>
-            <p>Start: March 2026 · Expected Graduation: 2030</p>
+            <h3>Higher Education: Yonsei University (ISED)</h3>
+  
             <p class="edu-note">
-              I’m looking forward to working with people who love asking questions,
-              building things, and combining ideas across disciplines.
+              The school hasn't started yet, so check out some pictures of my cat below.
             </p>
             <div class="edu-images-scroll">
               <!-- TODO: Replace placeholder images with campus / related images -->
-              <img src="assets/edu-yonsei-1.jpg" alt="University campus style placeholder" />
-              <img src="assets/edu-yonsei-2.jpg" alt="Students walking on campus" />
+              <img src="assets/cat.jpeg" alt="Cat" />
+              <img src="assets/catandme.JPG" alt="Cat & Me" />
+              <img src="assets/cat2.jpeg" alt="Cat" />
+              <img src="assets/cat3.jpeg" alt="Cat" />
             </div>
           </div>
 
-          <!-- Secondary Education Card -->
-          <div class="edu-card">
-            <h3>Secondary Education</h3>
-            <p><strong>European Baccalaureate Programme</strong></p>
-            <p>École Internationale PACA, Manosque</p>
-            <p>March 2018 - July 2025</p>
-            <p>Final Score: <strong>91.97%</strong></p>
-            <p class="edu-note">
-              I focused on high-level mathematics, physics, and chemistry,
-              and spent time in camps and research programmes to explore these areas further.
-            </p>
-            <div class="edu-images-scroll">
-              <!-- TODO: Replace placeholders with school-related photos -->
-              <img src="assets/edu-eb-1.jpg" alt="School building exterior" />
-              <img src="assets/edu-eb-2.jpg" alt="Classroom with desks" />
-              <img src="assets/edu-eb-3.jpg" alt="Books and stationery" />
-            </div>
-          </div>
-
-          <!-- Academic Focus Card -->
-          <div class="edu-card">
-            <h3>Academic Focus</h3>
-            <ul>
-              <li>High-level Mathematics (4P)</li>
-              <li>Advanced Mathematics (3P)</li>
-              <li>Physics (4P), Chemistry (4P)</li>
-            </ul>
-            <p class="edu-note">
-              These subjects gave me a strong foundation in analytical reasoning
-              and helped me appreciate both the beauty and practicality of math and science.
-            </p>
-            <div class="edu-images-scroll">
-              <!-- TODO: Replace placeholders with any math/physics imagery -->
-              <img src="assets/edu-math-1.jpg" alt="Handwriting formulas on paper" />
-              <img src="assets/edu-physics-1.jpg" alt="Physics diagrams in a notebook" />
-              <img src="assets/edu-chem-1.jpg" alt="Simple chemistry lab setup" />
-            </div>
-          </div>
-        </div>
-
-        <div class="edu-grid edu-grid--two">
           <!-- Awards & Exams Card -->
           <div class="edu-card">
-            <h3>Awards & Exams</h3>
+            <h3>High School & Exams</h3>
             <ul class="compact-list">
-              <li>AP Chemistry — Score 5 (2025)</li>
-              <li>AP Calculus BC — Score 5 (2024)</li>
-              <li>SAT 1530 — 99th percentile (2024)</li>
-              <li>TOEFL 113 — C2 (2024)</li>
-              <li>French National Math Olympiad — 95th percentile (2024)</li>
-              <li>DALF C1 — 70.1% (2025)</li>
-              <li>Duke of Edinburgh's Silver Medal (2024)</li>
+              <li>European Baccalaureate — 92.0% (2025)</li>
+              <li>AP Calc BC & Chemistry — 5/5 (2024/2025)</li>
+              <li>DALF C1 (2025)</li>
+              <li>SAT — 1530 (2024)</li>
+              <li>TOEFL — 113 (2024)</li>
             </ul>
             <p class="edu-note">
-              These results mean a lot to me, but I try to see them mainly as encouragement
-              to keep learning with curiosity and humility.
+              I went to a school in Sourthern France (
+              <a href="https://ecoleinternationalepaca.fr/en/" target="_blank" rel="noopener noreferrer">
+                EIPACA
+              </a>
+              ) that focused on bilingual education and European curricula.
             </p>
             <div class="edu-images-scroll">
               <!-- TODO: Replace placeholders with certificates / medals / exam vibes -->
-              <img src="assets/edu-awards-1.jpg" alt="Certificate folder on a desk" />
-              <img src="assets/edu-awards-2.jpg" alt="Close-up of a medal" />
+              <img src="assets/graduation4.jpeg" alt="Group photo" />
+              <img src="assets/graduation3.jpg" alt="Graduation speech" />
+              <img src="assets/walking2.jpeg" alt="Walking" />
+              
             </div>
           </div>
 
@@ -177,22 +145,20 @@
             <h3>Experiences & Skills</h3>
             <p><strong>Work & Research</strong></p>
             <ul class="compact-list">
-              <li>Pharmacy Assistant (2022)</li>
+              <li>Astronomy Camp - Saint Michel Observatory (2024)</li>
+              <li>Maths Research Camp, Aix-Marseille University (2024)</li>
               <li>Computer Science Assistant at ITER (2023)</li>
               <li>Neuroscience Research Camp, Dublin University (2023)</li>
-              <li>Mathematics Research Camp, Aix-Marseille University (2024)</li>
-              <li>Astronomy Science Camp – Saint Michel l'Observatoire (2024)</li>
             </ul>
-            <p><strong>Skills</strong></p>
-            <ul class="compact-list">
-              <li>C++ (Intermediate)</li>
-              <li>MS Office (Advanced)</li>
-              <li>Languages: Korean (native), English (C2), French (C1)</li>
-            </ul>
+              <p class="edu-note">
+                I did several short research camps and internships to explore different fields. 
+
+            </p>
             <div class="edu-images-scroll">
               <!-- TODO: Replace placeholders with work/research photos (non-identifying if needed) -->
-              <img src="assets/edu-work-1.jpg" alt="Computer workstation with code on screen" />
-              <img src="assets/edu-research-1.jpg" alt="Notebook and laptop at a research table" />
+              <img src="assets/astronomy.jpg" alt="Astronomy Camp" />
+              <img src="assets/iter.jpeg" alt="Iter" />
+              <img src="assets/neuroscience.JPG" alt="Neuroscience Camp" />
             </div>
           </div>
         </div>
