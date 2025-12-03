@@ -282,7 +282,7 @@ a:hover {
 }
 
 /* Small tweaks for smaller screens */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero-inner {
     padding: 2.5rem 1.4rem 2.8rem;
   }
@@ -554,7 +554,7 @@ a:hover {
    MAIN MOBILE LAYOUT — phones & small tablets
    (everything below 768px)
 =========================================== */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 
     /* SIDE PROJECTS — MOBILE LAYOUT */
   .project-grid {
@@ -760,4 +760,57 @@ a:hover {
   font-size: 0.78rem;
   text-align: center;
   opacity: 0.7;
+}
+
+
+/* Featured project card — desktop only */
+@media (min-width: 1024px) {
+
+    .project-grid {
+    gap: 2rem; /* ensures consistent spacing between all cards */
+  }
+
+  .project-card--featured {
+    grid-column: span 2;
+    grid-row: span 2;
+
+    /* Add bottom spacing so it doesn’t touch other cards */
+    margin-bottom: 2rem;
+
+    /* Optional: add top spacing if needed */
+    padding-bottom: 1.5rem;
+  }
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns on desktop */
+  }
+
+  .project-card--featured {
+    grid-column: span 2;   /* twice as wide */
+    grid-row: span 2;      /* twice as tall */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Make the featured image taller */
+  .project-card--featured .project-image-wrap img {
+    height: 360px; /* adjust how big you want */
+    object-fit: cover;
+  }
+}
+
+/* Mobile: always 1 column */
+@media (max-width: 1023px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Featured card becomes normal size on mobile */
+  .project-card--featured {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .project-card--featured .project-image-wrap img {
+    height: 240px;
+  }
 }
