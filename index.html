@@ -48,7 +48,7 @@
     <!-- Mobile first: used when viewport ≤ 768px -->
     <source srcset="assets/walking2.jpeg" media="(max-width: 768px)">
     <!-- Default / desktop image -->
-    <img src="assets/walking3.jpg" alt="Seunghyun walking outdoors" class="hero-img">
+    <img src="assets/walking3.jpg" alt="Seunghyun walking outdoors" class="hero-img" />
   </picture>
 
   <div class="hero-overlay"></div>
@@ -66,10 +66,10 @@
       <div class="hero-project hero-project--on-image">
         <h2 class="hero-project-title">Featured Project</h2>
         <p class="hero-project-description">
-          A deeper look into one project I spent extra time with — including
-          messy notes, failed attempts, and what I eventually learned.
+          Check out what I am currently working on: an ESP32-based remote-controlled plane.
+          This project has taught me a lot about electronics, programming, and aerodynamics.
         </p>
-        <a class="button" href="https://www.notion.so/YOUR-MAIN-PROJECT" target="_blank" rel="noopener noreferrer">
+        <a class="button" href="https://messy-lancer-b5f.notion.site/ESP32-RC-Plane-2be819f52866804ba86efb5c2db0bcef?pvs=74" target="_blank" rel="noopener noreferrer">
           Learn more on Notion
         </a>
       </div>
@@ -98,15 +98,11 @@
               Hey, I'm Seunghyun. 
               Check out some random photos of me below. I always enjoyed making stuff as a kid.
             </p>
-            <!-- Scrollable images for this card -->
             <div class="edu-images-scroll">
-              <!-- TODO: Replace placeholder images with real photos -->
-              <img src="assets/face3.jpeg" alt="Face" />
-              <img src="assets/seoul1.jpeg" alt="Holding an album" />
-              <img src="assets/running.jpeg" alt="Running" />
-              <img src="assets/makinghat.jpg" alt="Making a hat" />
-              <span class="scroll-hint">← swipe →</span>
-
+              <img src="assets/face3.jpeg" alt="Face" class="zoomable" />
+              <img src="assets/seoul1.jpeg" alt="Holding an album" class="zoomable"/>
+              <img src="assets/running.jpeg" alt="Running" class="zoomable"/>
+              <img src="assets/makinghat.jpg" alt="Making a hat" class="zoomable"/>
             </div>
           </div>
 
@@ -118,11 +114,10 @@
               The school hasn't started yet, so check out some pictures of my cat below.
             </p>
             <div class="edu-images-scroll">
-              <!-- TODO: Replace placeholder images with campus / related images -->
-              <img src="assets/cat.jpeg" alt="Cat" />
-              <img src="assets/catandme.JPG" alt="Cat & Me" />
-              <img src="assets/cat2.jpeg" alt="Cat" />
-              <img src="assets/cat3.jpeg" alt="Cat" />
+              <img src="assets/cat.jpeg" alt="Cat" class="zoomable"/>
+              <img src="assets/catandme.JPG" alt="Cat & Me" class="zoomable"/>
+              <img src="assets/cat2.jpeg" alt="Cat" class="zoomable"/>
+              <img src="assets/cat3.jpeg" alt="Cat" class="zoomable"/>
             </div>
           </div>
 
@@ -145,9 +140,9 @@
             </p>
             <div class="edu-images-scroll">
               <!-- TODO: Replace placeholders with certificates / medals / exam vibes -->
-              <img src="assets/graduation4.jpeg" alt="Group photo" />
-              <img src="assets/graduation3.jpg" alt="Graduation speech" />
-              <img src="assets/walking2.jpeg" alt="Walking" />
+              <img src="assets/graduation4.jpeg" alt="Group photo" class="zoomable"/>
+              <img src="assets/graduation3.jpg" alt="Graduation speech" class="zoomable"/>
+              <img src="assets/walking2.jpeg" alt="Walking" class="zoomable"/>
               
             </div>
           </div>
@@ -168,9 +163,9 @@
             </p>
             <div class="edu-images-scroll">
               <!-- TODO: Replace placeholders with work/research photos (non-identifying if needed) -->
-              <img src="assets/astronomy.jpg" alt="Astronomy Camp" />
-              <img src="assets/iter.jpeg" alt="Iter" />
-              <img src="assets/neuroscience.JPG" alt="Neuroscience Camp" />
+              <img src="assets/astronomy.jpg" alt="Astronomy Camp" class="zoomable"/>
+              <img src="assets/iter.jpeg" alt="Iter" class="zoomable"/>
+              <img src="assets/neuroscience.JPG" alt="Neuroscience Camp" class="zoomable"/>
             </div>
           </div>
         </div>
@@ -197,7 +192,7 @@
         <!--FEATURED PROJECT-->
         <article class="project-card project-card--featured">
           <div class="project-image-wrap">
-            <img src="assets/planeproject1.png" alt="Featured project" />
+            <img src="assets/planeproject1.png" alt="Featured project" class="zoomable"/>
           </div>
 
           <div class="project-content">
@@ -223,7 +218,7 @@
           <!-- Project Card 1 -->
           <article class="project-card">
             <div class="project-image-wrap">
-              <img src="assets/arduinopic.jpeg" alt="Main project thumbnail placeholder" />
+              <img src="assets/arduinopic.jpeg" alt="Main project thumbnail placeholder" class="zoomable"/>
             </div>
             <div class="project-content">
               <h3>Arduino Projects</h3>
@@ -245,7 +240,7 @@
           <article class="project-card">
             <div class="project-image-wrap">
               <!-- Main thumbnail (can be a still image) -->
-              <img src="assets/physics1physics2.png" alt="Physics Notes" />
+              <img src="assets/physics1physics2.png" alt="Physics Notes" class="zoomable"/>
             </div>
 
             <div class="project-content">
@@ -268,7 +263,7 @@
           <!-- Project Card 3 -->
           <article class="project-card">
             <div class="project-image-wrap">
-              <img src="assets/face2.jpeg" alt="Math notes project placeholder" />
+              <img src="assets/face2.jpeg" alt="Math notes project placeholder" class="zoomable"/>
             </div>
             <div class="project-content">
               <h3>More coming soon...</h3>
@@ -321,7 +316,7 @@
         </div>
 
         <div class="contact-portrait">
-          <img src="assets/face4.jpeg" alt="Portrait of Seunghyun" />
+          <img src="assets/face4.jpeg" alt="Portrait of Seunghyun" class="zoomable"/>
           <p class="portrait-caption">
             You can probably guess what my favoite fruit is from this picture.
           </p>
@@ -346,6 +341,24 @@
 
   navToggle.addEventListener('click', () => {
     nav.classList.toggle('active');
+  });
+</script>
+
+<div id="image-lightbox">
+  <img src="" alt="expanded view">
+</div>
+
+<script>
+  const lightbox = document.getElementById("image-lightbox");
+  const lightboxImg = lightbox.querySelector("img");
+
+  document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("zoomable")) {
+      lightboxImg.src = e.target.src;
+      lightbox.style.display = "flex";
+    } else if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
   });
 </script>
 
