@@ -132,14 +132,14 @@
               <li>TOEFL — 113 (2024)</li>
             </ul>
             <p class="edu-note">
-              I went to a school in Sourthern France (
+              These exams and scores mainly reflect consistency and curiosity more than raw talent.
+              I went to a school in Southern France (
               <a href="https://ecoleinternationalepaca.fr/en/" target="_blank" rel="noopener noreferrer">
                 EIPACA
               </a>
               ) that focused on bilingual education and European curricula.
             </p>
             <div class="edu-images-scroll">
-              <!-- TODO: Replace placeholders with certificates / medals / exam vibes -->
               <img src="assets/graduation4.jpeg" alt="Group photo" class="zoomable"/>
               <img src="assets/graduation3.jpg" alt="Graduation speech" class="zoomable"/>
               <img src="assets/walking2.jpeg" alt="Walking" class="zoomable"/>
@@ -162,7 +162,6 @@
 
             </p>
             <div class="edu-images-scroll">
-              <!-- TODO: Replace placeholders with work/research photos (non-identifying if needed) -->
               <img src="assets/astronomy.jpg" alt="Astronomy Camp" class="zoomable"/>
               <img src="assets/iter.jpeg" alt="Iter" class="zoomable"/>
               <img src="assets/neuroscience.JPG" alt="Neuroscience Camp" class="zoomable"/>
@@ -239,7 +238,6 @@
           <!-- Project Card 2 -->
           <article class="project-card">
             <div class="project-image-wrap">
-              <!-- Main thumbnail (can be a still image) -->
               <img src="assets/physics1physics2.png" alt="Physics Notes" class="zoomable"/>
             </div>
 
@@ -295,22 +293,25 @@
             If you'd like to talk about projects, ideas, or opportunities,
             I'd be happy to hear from you.
           </p>
+
           <ul class="contact-list">
+
             <li>
               <strong>Email:</strong>
               <a href="mailto:ph3749205@gmail.com">ph3749205@gmail.com</a>
+              <button class="copy-btn" data-copy="ph3749205@gmail.com">copy</button>
             </li>
+
             <li>
               <strong>GitHub:</strong>
-              <a href="https://github.com/seunghyun2007" target="_blank" rel="noopener noreferrer">
-                github.com/seunghyun2007
-              </a>
+              <a href="https://github.com/seunghyun2007" target="_blank">github.com/seunghyun2007</a>
+              <button class="copy-btn" data-copy="https://github.com/seunghyun2007">copy</button>
             </li>
+
             <li>
               <strong>LinkedIn:</strong>
-              <a href="https://www.linkedin.com/in/seunghyun-kang-176898281/" target="_blank" rel="noopener noreferrer">
-                linkedin.com/in/seunghyun-kang-176898281/
-              </a>
+              <a href="https://www.linkedin.com/in/seunghyun-kang-176898281/" target="_blank">https://www.linkedin.com/in/seunghyun-kang-176898281/</a>
+              <button class="copy-btn" data-copy="https://www.linkedin.com/in/seunghyun-kang-176898281/">copy</button>
             </li>
           </ul>
         </div>
@@ -318,12 +319,14 @@
         <div class="contact-portrait">
           <img src="assets/face4.jpeg" alt="Portrait of Seunghyun" class="zoomable"/>
           <p class="portrait-caption">
-            You can probably guess what my favoite fruit is from this picture.
+            You can probably guess what my favorite fruit is from this picture.
           </p>
         </div>
       </div>
     </section>
   </main>
+
+
 
   <footer class="site-footer">
     <div class="container footer-inner">
@@ -331,6 +334,10 @@
     </div>
   </footer>
 
+
+
+
+  <!--JAVASCRIPT SECTION-->
   <script>
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -361,6 +368,46 @@
     }
   });
 </script>
+
+<script>
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("copy-btn")) {
+    const text = event.target.getAttribute("data-copy");
+    navigator.clipboard.writeText(text);
+
+    // feedback style
+    event.target.classList.add("copied");
+    event.target.textContent = "copied!";
+    
+    setTimeout(() => {
+      event.target.classList.remove("copied");
+      event.target.textContent = "copy";
+    }, 1200);
+  }
+});
+</script>
+
+
+
+
+<script>
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector(".nav");
+  const toggle = document.querySelector(".nav-toggle");
+
+  // Only close if currently open
+  if (nav.classList.contains("active")) {
+    nav.classList.remove("active");
+
+    // If your hamburger animates to X, reset animation class
+    toggle.classList.remove("open");
+  }
+});
+</script>
+
+
 
 </body>
 </html>

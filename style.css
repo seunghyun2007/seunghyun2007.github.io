@@ -124,7 +124,7 @@ a:hover {
   color: var(--text-soft);
   text-decoration: none;
   font-size: 0.95rem;
-  padding: 0.25rem 0;
+  padding: 0.4rem 0;
   position: relative;
 }
 
@@ -179,32 +179,38 @@ a:hover {
   }
 
   /* Collapse nav into dropdown */
-  .nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
 
-    flex-direction: column;
-    gap: 1rem;
+  flex-direction: column;
+  gap: 1rem;
 
-    background: rgba(255, 255, 255, 0.97);
-    border-bottom: 1px solid rgba(209, 230, 221, 0.9);
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid rgba(209, 230, 221, 0.9);
 
-    padding: 1.2rem 1.6rem;
+  padding: 1.2rem 1.6rem;
 
-    transform: translateY(-140%);
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.25s ease;
-  }
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
 
-  .nav.active {
-    transform: translateY(0%);
-    opacity: 1;
-    pointer-events: auto;
-  }
+  pointer-events: none;
+
+  transition:
+    max-height 0.45s ease,
+    opacity 0.35s ease;
 }
+
+/* Menu open */
+.nav.active {
+  max-height: 400px;    /* big enough for all links */
+  opacity: 1;
+  pointer-events: auto;
+}
+
 
 
 
@@ -851,4 +857,27 @@ a:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.97); }
   to { opacity: 1; transform: scale(1); }
+}
+
+
+.copy-btn {
+  margin-left: 0.6rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  color: #0f172a;
+  background: var(--accent-soft);
+  border: 1px solid rgba(191, 227, 192, 0.7);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.copy-btn:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+.copy-btn.copied {
+  background: #c0e8c4;
+  border-color: #88c794;
 }
