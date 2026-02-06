@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Valentine</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 90%;
+            max-width: 400px;
+            /* Entrance Animation */
+            animation: slideUpFade 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        /* The Main Image */
+        .gif-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            /* Floating Animation */
+            animation: float 3s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap; 
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+            font-weight: bold;
+            -webkit-tap-highlight-color: transparent; /* Removes blue highlight on mobile */
+        }
+
+        #yesBtn {
+            background-color: #4CAF50;
+            color: white;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+            /* Heartbeat Animation */
+            animation: heartbeat 2s infinite;
+        }
+
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+            box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
+        }
+
+        /* --- ANIMATION KEYFRAMES --- */
+
+        /* Slide up and fade in on load */
+        @keyframes slideUpFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating effect for image */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Heartbeat for Yes button */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.1); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Shake effect for No button */
+        .shake {
+            animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+        }
+
+        @keyframes shake {
+            10%, 90% { transform: translate3d(-2px, 0, 0); }
+            20%, 80% { transform: translate3d(4px, 0, 0); }
+            30%, 50%, 70% { transform: translate3d(-8px, 0, 0); }
+            40%, 60% { transform: translate3d(8px, 0, 0); }
+        }
+
+        /* Rain Particle Styles */
+        .particle {
+            position: fixed;
+            top: -10vh;
+            z-index: 1;
+            animation: fall linear forwards;
+            font-size: 24px;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        /* Celebration Screen */
+        #celebration {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: white;
+            z-index: 20;
+            opacity: 0; /* Starts hidden for fade in */
+            transition: opacity 1s ease;
+        }
+        
+        #celebration img {
+            max-width: 80%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        #celebration h1 {
+            color: #e91e63;
+            font-size: 2rem;
+            margin-top: 20px;
+            animation: slideUpFade 1s ease-out forwards 0.5s; /* Delay text slightly */
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="question-screen">
+        <div class="gif-container">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3R6bWl6Z296bHR5bm1mY214aG1sZmd4YXowb21oYmR5Y2J6Ynl2eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MDJ9IbxxvDUQM/giphy.gif" alt="Cute GIF">
+        </div>
+        <h1>Will you be my Valentine?</h1>
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <div id="celebration">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmhmbGlqYnl3aG5oM3A2c2V6M3Z6ZG54bnFzcjV2aXI4aGg0eXlweSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/T86i6yDyOYz7J6dPhf/giphy.gif" alt="Happy GIF">
+        <h1>Yay! See you on the 14th! ❤️</h1>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const questionScreen = document.getElementById('question-screen');
+        const celebrationScreen = document.getElementById('celebration');
+
+        let yesScale = 1;
+        let yesPadding = 15;
+        let yesFontSize = 16;
+
+        // "No" Button Logic
+        noBtn.addEventListener('click', () => {
+            // 1. Add Shake Animation class
+            noBtn.classList.add('shake');
+            
+            // 2. Remove class after animation ends so it can be triggered again
+            setTimeout(() => {
+                noBtn.classList.remove('shake');
+            }, 500);
+
+            // 3. Make Yes Button Bigger
+            yesScale += 0.5;
+            yesPadding += 10;
+            yesFontSize += 5;
+
+            // Apply styles
+            yesBtn.style.transform = `scale(${yesScale})`;
+            yesBtn.style.padding = `${yesPadding}px ${yesPadding * 2}px`;
+            yesBtn.style.fontSize = `${yesFontSize}px`;
+            
+            // Remove heartbeat animation when it starts growing to prevent glitching
+            yesBtn.style.animation = 'none'; 
+        });
+
+        // "Yes" Button Logic
+        yesBtn.addEventListener('click', () => {
+            // Fade out question screen
+            questionScreen.style.display = 'none';
+            
+            // Fade in celebration screen
+            celebrationScreen.style.display = 'flex';
+            
+            // Small timeout to allow the display change to register before fading opacity
+            setTimeout(() => {
+                celebrationScreen.style.opacity = '1';
+            }, 50);
+
+            startRaining();
+        });
+
+        // Raining Logic
+        function startRaining() {
+            const symbols = ['❤️', '🌸', '🌹', '😻', '💖', '🍫','🍉','🍒'];
+            
+            // Create particles faster
+            setInterval(() => {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+                
+                particle.style.left = Math.random() * 100 + 'vw';
+                
+                // Randomize speed/duration
+                const duration = Math.random() * 2 + 3;
+                particle.style.animationDuration = duration + 's';
+                
+                celebrationScreen.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, duration * 1000);
+            }, 70); 
+        }
+    </script>
+</body>
+</html>
