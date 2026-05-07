@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Seunghyun Kang · Engineering Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio and learning journal of Seunghyun Kang, aspiring engineer exploring science, math, and technology through projects." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Optional: Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <span class="logo-dot"></span>
+      <span class="logo-text">Seunghyun Kang</span>
+    </div>
+
+    <!-- MOBILE MENU BUTTON -->
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      ☰
+    </button>
+
+    <!-- NAV LINKS -->
+    <nav class="nav">
+      <a href="#hero">Home</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+
+
+  <main>
+    <!-- Section 1: Featured Main Project / Hero -->
+<section id="hero" class="hero">
+
+  <!-- One picture element that swaps image by screen size -->
+  <picture class="hero-media">
+    <!-- Mobile first: used when viewport ≤ 768px -->
+    <source srcset="assets/hero_mobile.png" media="(max-width: 768px)">
+    <!-- Default / desktop image -->
+    <img src="assets/horizontal_hero.png" alt="Test flight" class="hero-img" />
+  </picture>
+
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">Student Engineer · Learner</p>
+      <h1>Learning by building, one project at a time.</h1>
+      <p class="hero-body">
+        Hi, I'm <strong>Seunghyun Kang</strong>. I enjoy understanding the world through
+        science, mathematics, and small, hands-on projects. This website is a quiet
+        place to document what I'm trying, what works, and what doesn't.
+      </p>
+
+      <div class="hero-project hero-project--on-image">
+        <h2 class="hero-project-title">Featured Project</h2>
+        <p class="hero-project-description">
+          Check out what I am currently working on: an ESP32-based remote-controlled plane.
+          This project has taught me a lot about embedded electronics, programming in C++, and CAD.
+        </p>
+        <a class="button" href="https://messy-lancer-b5f.notion.site/ESP32-RC-Plane-2be819f52866804ba86efb5c2db0bcef?pvs=74" target="_blank" rel="noopener noreferrer">
+          Learn more on Notion
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+    <!-- Section 2: Education & Qualifications -->
+    <section id="education" class="section education">
+      <div class="container">
+        <h2>Education &amp; Background</h2>
+        <p class="section-intro">
+          I'm a South Korean student currently finishing my secondary education in France,
+          and preparing to study science and engineering at Yonsei University.
+        </p>
+
+        <div class="edu-grid">
+          <!-- About Me Card -->
+          <div class="edu-card">
+            <h3>About Me</h3>
+            <p class="edu-note">
+              Hey, I'm Seunghyun. 
+              Check out some random photos of me below. I always enjoyed making stuff as a kid.
+            </p>
+            <div class="edu-images-scroll">
+              <img src="assets/face3.jpeg" alt="Face" class="zoomable" />
+              <img src="assets/seoul1.jpeg" alt="Holding an album" class="zoomable"/>
+              <img src="assets/running.jpeg" alt="Running" class="zoomable"/>
+              <img src="assets/makinghat.jpg" alt="Making a hat" class="zoomable"/>
+            </div>
+          </div>
+
+          <!-- Higher Education Card -->
+          <div class="edu-card">
+            <h3>Higher Education: Yonsei University or KAIST</h3>
+  
+            <p class="edu-note">
+              The school hasn't started yet, so check out some pictures of my cat below.
+            </p>
+            <div class="edu-images-scroll">
+              <img src="assets/cat.jpeg" alt="Cat" class="zoomable"/>
+              <img src="assets/catandme.JPG" alt="Cat & Me" class="zoomable"/>
+              <img src="assets/cat2.jpeg" alt="Cat" class="zoomable"/>
+              <img src="assets/cat3.jpeg" alt="Cat" class="zoomable"/>
+            </div>
+          </div>
+
+          <!-- Awards & Exams Card -->
+          <div class="edu-card">
+            <h3>High School & Exams</h3>
+            <ul class="compact-list">
+              <li>European Baccalaureate — 92.0% (2025)</li>
+              <li>AP Calc BC & Chemistry — 5/5 (2024/2025)</li>
+              <li>DALF C1 (2025)</li>
+              <li>SAT — 1530 (2024)</li>
+              <li>TOEFL — 113 (2024)</li>
+            </ul>
+            <p class="edu-note">
+              These exams and scores mainly reflect consistency and curiosity more than raw talent.
+              I went to a school in Southern France (
+              <a href="https://ecoleinternationalepaca.fr/en/" target="_blank" rel="noopener noreferrer">
+                EIPACA
+              </a>
+              ) that focused on bilingual education and European curricula.
+            </p>
+            <div class="edu-images-scroll">
+              <img src="assets/graduation4.jpeg" alt="Group photo" class="zoomable"/>
+              <img src="assets/graduation3.jpg" alt="Graduation speech" class="zoomable"/>
+              <img src="assets/walking2.jpeg" alt="Walking" class="zoomable"/>
+              
+            </div>
+          </div>
+
+          <!-- Experiences & Skills Card -->
+          <div class="edu-card">
+            <h3>Experiences & Skills</h3>
+            <p><strong>Work & Research</strong></p>
+            <ul class="compact-list">
+              <li>Astronomy Camp - Saint Michel Observatory (2024)</li>
+              <li>Maths Research Camp, Aix-Marseille University (2024)</li>
+              <li>Computer Science Assistant at ITER (2023)</li>
+              <li>Neuroscience Research Camp, Dublin University (2023)</li>
+            </ul>
+              <p class="edu-note">
+                I did several short research camps and internships to explore different fields. 
+
+            </p>
+            <div class="edu-images-scroll">
+              <img src="assets/astronomy.jpg" alt="Astronomy Camp" class="zoomable"/>
+              <img src="assets/iter.jpeg" alt="Iter" class="zoomable"/>
+              <img src="assets/neuroscience.JPG" alt="Neuroscience Camp" class="zoomable"/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- Section 3: Side Projects -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <h2>Side Projects & Experiments</h2>
+        <p class="section-intro">
+          These are smaller projects, notes, and experiments that helped me learn.
+          Most of them are documented in more detail on Notion.
+        </p>
+
+
+
+
+
+        <!--FEATURED PROJECT-->
+        <article class="project-card project-card--featured">
+          <div class="project-image-wrap">
+            <img src="assets/planeNcar.jpeg" alt="Featured project" class="zoomable"/>
+          </div>
+
+          <div class="project-content">
+            <h3>Featured Project: ESP32 RC Plane</h3>
+            <p>
+              My first big hands-on electronics and programming project.
+              I built a remote-controlled plane using an ESP32 microcontroller,
+              learning about aerodynamics, control systems, and wireless communication along the way.
+            </p>
+            <a class="project-link" href="https://messy-lancer-b5f.notion.site/ESP32-RC-Plane-2be819f52866804ba86efb5c2db0bcef?pvs=73" target="_blank">
+              Open full documentation on Notion →
+            </a>
+          </div>
+        </article>
+
+
+
+
+
+        <div class="project-grid">
+
+          <!-- Project Card 1 -->
+          <article class="project-card">
+            <div class="project-image-wrap">
+              <img src="assets/keuri1.jpeg" alt="Math notes project placeholder" class="zoomable"/>
+            </div>
+            <div class="project-content">
+              <h3>Coming Soon!</h3>
+                <p>
+                  
+              </p>
+                <a class="project-link" href="" target="_blank" rel="noopener noreferrer">
+                Open full documentation on Notion →
+              </a>
+            </div>
+          </article>
+
+
+
+
+
+          <!-- Project Card 2 -->
+          <article class="project-card">
+            <div class="project-image-wrap">
+              <img src="assets/physics1physics2.png" alt="Physics Notes" class="zoomable"/>
+            </div>
+
+            <div class="project-content">
+              <h3>AP physics I & II Notes</h3>
+              <p>
+                I self-studied AP Physics I & II in 4 weeks, creating notes and
+                experiments to understand key concepts in mechanics, electricity,
+                magnetism, and waves.
+              </p>
+              <a class="project-link" href="https://web.goodnotes.com/s/ER3lSUV0MHVgxGXeP7gFpC" target="_blank" rel="noopener noreferrer">
+                View notes, mistakes, and photos on GoodNotes →
+              </a>
+            </div>
+          </article>
+
+
+
+
+
+          <!-- Project Card 3 -->
+
+          <article class="project-card">
+            <div class="project-image-wrap">
+              <img src="assets/arduinopic.jpeg" alt="Main project thumbnail placeholder" class="zoomable"/>
+            </div>
+            <div class="project-content">
+              <h3>Arduino Projects</h3>
+              <p>
+                I followed several Arduino tutorials to understand microcontrollers,
+                sensors, and actuators. This helped me prepare for my main ESP32 project.
+              </p>
+              <a class="project-link" href="https://messy-lancer-b5f.notion.site/Arduino-Projects-2be819f5286680098e21eae9f1025d8d?pvs=73" target="_blank" rel="noopener noreferrer">
+                Open full documentation on Notion →
+              </a>
+            </div>
+          </article>
+
+
+
+          <!-- Project Card 4 -->
+          <article class="project-card">
+            <div class="project-image-wrap">
+              <img src="assets/face2.jpeg" alt="Math notes project placeholder" class="zoomable"/>
+            </div>
+            <div class="project-content">
+              <h3>More coming soon...</h3>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="projects-note">
+          I will continue adding more projects over time. Each card above links
+          to a more detailed Notion page with many images and informal notes.
+        </p>
+      </div>
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Section 4: Contact -->
+    <section id="contact" class="section contact">
+      <div class="container contact-grid">
+        <div>
+          <h2>Contact</h2>
+          <p class="section-intro">
+            If you'd like to talk about projects, ideas, or opportunities,
+            I'd be happy to hear from you.
+          </p>
+
+          <ul class="contact-list">
+
+            <li>
+              <strong>Email:</strong>
+              <a href="mailto:ph3749205@gmail.com">ph3749205@gmail.com</a>
+              <button class="copy-btn" data-copy="ph3749205@gmail.com">copy</button>
+            </li>
+
+            <li>
+              <strong>GitHub:</strong>
+              <a href="https://github.com/seunghyun2007" target="_blank">github.com/seunghyun2007</a>
+              <button class="copy-btn" data-copy="https://github.com/seunghyun2007">copy</button>
+            </li>
+
+            <li>
+              <strong>LinkedIn:</strong>
+              <a href="https://www.linkedin.com/in/seunghyun-kang-176898281/" target="_blank">https://www.linkedin.com/in/seunghyun-kang-176898281/</a>
+              <button class="copy-btn" data-copy="https://www.linkedin.com/in/seunghyun-kang-176898281/">copy</button>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-portrait">
+          <img src="assets/face4.jpeg" alt="Portrait of Seunghyun" class="zoomable"/>
+          <p class="portrait-caption">
+            You can probably guess what my favorite fruit is from this picture.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Seunghyun Kang. Built with curiosity and many small headaches.</p>
+    </div>
+  </footer>
+
+
+
+
+  <!--JAVASCRIPT SECTION-->
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.nav');
+
+  navToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
+
+<div id="image-lightbox">
+  <img src="" alt="expanded view">
+</div>
+
+<script>
+  const lightbox = document.getElementById("image-lightbox");
+  const lightboxImg = lightbox.querySelector("img");
+
+  document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("zoomable")) {
+      lightboxImg.src = e.target.src;
+      lightbox.style.display = "flex";
+    } else if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+</script>
+
+<script>
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("copy-btn")) {
+    const text = event.target.getAttribute("data-copy");
+    navigator.clipboard.writeText(text);
+
+    // feedback style
+    event.target.classList.add("copied");
+    event.target.textContent = "copied!";
+    
+    setTimeout(() => {
+      event.target.classList.remove("copied");
+      event.target.textContent = "copy";
+    }, 1200);
+  }
+});
+</script>
+
+
+
+
+<script>
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector(".nav");
+  const toggle = document.querySelector(".nav-toggle");
+
+  // Only close if currently open
+  if (nav.classList.contains("active")) {
+    nav.classList.remove("active");
+
+    // If your hamburger animates to X, reset animation class
+    toggle.classList.remove("open");
+  }
+});
+</script>
+
+
+
+</body>
+</html>

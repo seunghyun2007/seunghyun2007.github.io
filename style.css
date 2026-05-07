@@ -1,0 +1,884 @@
+
+:root {
+  --bg: #f4faf6;              /* slightly tinted with green */
+  --card-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-soft: #64748b;
+  --accent: #bfe3c0;          /* pastel green */
+  --accent-soft: #e3f4e7;     /* lighter green for backgrounds */
+  --accent-soft-2: #f0faf3;   /* very light for sections */
+  --bordeaux: #6d0b1c;        /* small touches only */
+  --border-soft: #dbe2e8;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --shadow-soft: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top left, var(--accent-soft-2), var(--bg));
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout */
+
+.container {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 4.5rem 0;
+}
+
+.section:nth-of-type(odd) {
+  background: rgba(191, 227, 192, 0.04); /* gentle pastel green tint */
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-intro {
+  max-width: 640px;
+  color: var(--text-soft);
+  margin-bottom: 2.5rem;
+}
+
+/* ============ HEADER BASE ============ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(244, 250, 246, 0.9);
+  border-bottom: 1px solid rgba(209, 230, 221, 0.9);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;   /* desktop: logo left, nav right */
+  padding: 0.9rem 0;
+}
+
+/* LOGO */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--bordeaux);
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-main);
+}
+
+/* NAV LINKS */
+
+.nav {
+  display: flex;
+  gap: 1.8rem;
+}
+
+.nav a {
+  color: var(--text-soft);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.4rem 0;
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.18s ease-out;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* HAMBURGER BUTTON (hidden on desktop) */
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ============ MOBILE HEADER ============ */
+
+@media (max-width: 1150px) {
+
+  .header-inner {
+    padding: 0.7rem 0;
+    justify-content: center;     /* center content horizontally */
+    position: relative;          /* so burger can be positioned on the right */
+  }
+
+  /* Center the logo */
+  .logo {
+    margin: 0 auto;
+  }
+
+  /* Burger absolutely positioned on right */
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    right: 1.5rem;              /* distance from right edge */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Collapse nav into dropdown */
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+
+  flex-direction: column;
+  gap: 1rem;
+
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid rgba(209, 230, 221, 0.9);
+
+  padding: 1.2rem 1.6rem;
+
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+
+  pointer-events: none;
+
+  transition:
+    max-height 0.45s ease,
+    opacity 0.35s ease;
+}
+
+/* Menu open */
+.nav.active {
+  max-height: 400px;    /* big enough for all links */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+}
+
+
+
+/* Hero */
+
+/* HERO SECTION USING <img> INSTEAD OF CSS BACKGROUND */
+/* HERO BASE */
+.hero {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Picture + image fill the hero */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dark gradient overlay for readability */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(15, 23, 42, 0.55),
+    rgba(15, 23, 42, 0.20),
+    rgba(255, 255, 255, 0.00)
+  );
+  z-index: -1;
+}
+
+/* Text area anchored near the bottom */
+.hero-inner {
+  position: relative;
+  width: 100%;
+  padding: 3rem 1.5rem 3.5rem;
+}
+
+.hero-copy {
+  max-width: 640px;
+  color: #f9fafb;
+}
+
+.hero h1 {
+  font-size: 2.3rem;
+  margin: 0 0 1rem;
+}
+
+.hero-body {
+  color: rgba(241, 245, 249, 0.9);
+  margin-bottom: 1.6rem;
+}
+
+/* Featured project card */
+.hero-project--on-image {
+  background: rgba(244, 250, 246, 0.92);
+  color: #0f172a;
+  border-radius: 18px;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid rgba(191, 227, 192, 0.9);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.35);
+}
+
+/* Small tweaks for smaller screens */
+@media (max-width: 1024px) {
+  .hero-inner {
+    padding: 2.5rem 1.4rem 2.8rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
+
+
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: var(--accent);
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background 0.12s;
+  box-shadow: 0 10px 20px rgba(148, 163, 184, 0.3);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(148, 163, 184, 0.45);
+  background: #aed9b2;
+  text-decoration: none;
+}
+
+.hero-image-wrap {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 0.9rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+}
+
+.hero-image {
+  border-radius: var(--radius-md);
+}
+
+.hero-caption {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  margin-top: 0.6rem;
+}
+
+/* Education */
+
+.education {
+  border-top: 1px solid var(--border-soft);
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.edu-grid--two {
+  margin-top: 2.5rem;
+}
+
+.edu-card {
+  background: radial-gradient(circle at top left, var(--accent-soft-2), var(--card-bg));
+  border-radius: var(--radius-lg);
+  padding: 1.3rem 1.4rem;
+  border: 1px solid rgba(191, 227, 192, 0.7);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.edu-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  font-size: 1.02rem;
+}
+
+.edu-card p {
+  margin: 0.25rem 0;
+}
+
+.edu-note {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.edu-card ul {
+  margin: 0.25rem 0;
+  padding-left: 1.1rem;
+  color: var(--text-main);
+}
+
+.compact-list li {
+  margin-bottom: 0.2rem;
+}
+
+/* Scrollable image strips inside education cards */
+
+.edu-images-scroll {
+  margin-top: 0.85rem;
+  display: flex;
+  gap: 0.55rem;
+  overflow-x: auto;
+  padding-bottom: 0.4rem;
+}
+
+/* Make scrolling feel neat */
+.edu-images-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.edu-images-scroll::-webkit-scrollbar-track {
+  background: rgba(191, 227, 192, 0.2);
+  border-radius: 999px;
+}
+
+.edu-images-scroll::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.9);
+  border-radius: 999px;
+}
+
+.edu-images-scroll img {
+  border-radius: 10px;
+  height: 350px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border: 1px solid rgba(191, 227, 192, 0.8);
+  background: #ffffff;
+}
+
+/* Projects */
+
+.projects {
+  border-top: 1px solid var(--border-soft);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, border-color 0.12s;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
+  border-color: rgba(191, 227, 192, 0.9);
+}
+
+.project-image-wrap img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: 1.1rem 1.25rem 1.15rem;
+}
+
+.project-content h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.02rem;
+}
+
+.project-content p {
+  margin: 0 0 0.8rem;
+  font-size: 0.93rem;
+  color: var(--text-soft);
+}
+
+.project-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.6);
+  padding-bottom: 0.1rem;
+}
+
+.project-link:hover {
+  border-color: var(--accent);
+}
+
+.projects-note {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+/* Contact */
+
+.contact {
+  border-top: 1px solid var(--border-soft);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0;
+}
+
+.contact-list li {
+  margin-bottom: 0.55rem;
+  font-size: 0.95rem;
+}
+
+.contact-list a {
+  color: var(--text-main);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+.contact-portrait img {
+  border-radius: 999px;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  border: 4px solid var(--accent-soft);
+}
+
+.portrait-caption {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  text-align: center;
+  margin-top: 0.7rem;
+}
+
+/* Footer */
+
+.site-footer {
+  border-top: 1px solid var(--border-soft);
+  padding: 1.2rem 0 1.5rem;
+  font-size: 0.86rem;
+  color: var(--text-soft);
+}
+
+.footer-inner {
+  text-align: center;
+}
+
+/* Responsive */
+
+/* ===========================================
+   MAIN MOBILE LAYOUT — phones & small tablets
+   (everything below 768px)
+=========================================== */
+@media (max-width: 1024px) {
+
+    /* SIDE PROJECTS — MOBILE LAYOUT */
+  .project-grid {
+    grid-template-columns: 1fr;   /* 1 column on mobile */
+    gap: 1.6rem;                  /* slightly tighter spacing */
+  }
+
+  .project-card {
+    max-width: 100%;
+  }
+
+  .project-image-wrap img {
+    height: 200px;                /* a bit taller on mobile if you like */
+  }
+
+
+  /* HEADER */
+  .header-inner {
+    padding: 0.7rem 0;
+    justify-content: center;
+    position: relative;
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    gap: 1rem;
+
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid rgba(209, 230, 221, 0.9);
+
+    padding: 1.2rem 1.6rem;
+    transform: translateY(-140%);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease;
+  }
+
+  .nav.active {
+    transform: translateY(0%);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* HERO */
+  .hero-inner {
+    padding: 2.5rem 1.4rem 2.8rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  /* GENERAL SECTIONS */
+  .section {
+    padding: 3.2rem 0;
+  }
+
+  /* EDUCATION LAYOUT */
+  .edu-grid,
+  .edu-grid--two {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  /* Fix spacing when images appear at top of education cards */
+.edu-card .edu-images-scroll {
+  margin-top: -0.2rem;      /* slightly pulls images up */
+  margin-bottom: 1.1rem;    /* space between images and title */
+}
+
+/* Add spacing under titles (because description comes next) */
+.edu-card h3 {
+  margin-top: 0.2rem;
+  margin-bottom: 0.65rem;  /* clean spacing between title + description */
+}
+
+/* Optional: slightly larger title for better hierarchy */
+.edu-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* Slight padding inside cards so top image isn't touching edge */
+.edu-card {
+  padding-top: 1.6rem;      /* more comfortable top padding */
+}
+
+
+  .edu-card p,
+  .edu-card li {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .edu-note {
+    margin-top: 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .edu-images-scroll {
+    gap: 0.75rem;
+    padding-bottom: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .edu-images-scroll img {
+    height: 300px;
+    flex: 0 0 auto;
+    border-radius: 14px;
+    object-fit: cover;
+  }
+
+  /* PROJECTS & CONTACT grids → single column */
+  .project-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  /* Section intro text */
+  .section-intro {
+    margin-bottom: 1.8rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+}
+
+/* ===========================================
+   EXTRA SMALL PHONES — below 480px
+=========================================== */
+@media (max-width: 480px) {
+
+  .edu-card {
+    padding: 1.2rem 1.1rem;
+    border-radius: 16px;
+  }
+
+  .edu-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .edu-images-scroll img {
+    height: 250px;
+  }
+
+  .section.education {
+    padding-top: 2.8rem;
+    padding-bottom: 2.8rem;
+  }
+}
+
+
+/* ================================
+   PROJECT MEDIA STRIP (CLEAN VERSION)
+================================ */
+
+.project-media-scroll-wrap {
+  margin-top: 0.9rem;
+}
+
+/* horizontal scroll strip — NO gradient, NO mask */
+.project-media-scroll {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 0.3rem 0 0.4rem;
+  scroll-behavior: smooth;
+}
+
+/* media items inside strip */
+.project-media-scroll img,
+.project-media-scroll video {
+  flex: 0 0 auto;
+  height: 450px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 1px solid rgba(191, 227, 192, 0.8);  /* soft pastel green border */
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08); /* soft shadow */
+}
+
+/* Swipe hint */
+.project-scroll-hint {
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  text-align: center;
+  opacity: 0.7;
+}
+
+
+/* Featured project card — desktop only */
+@media (min-width: 1024px) {
+
+    .project-grid {
+    gap: 2rem; /* ensures consistent spacing between all cards */
+  }
+
+  .project-card--featured {
+    grid-column: span 2;
+    grid-row: span 2;
+
+    /* Add bottom spacing so it doesn’t touch other cards */
+    margin-bottom: 2rem;
+
+    /* Optional: add top spacing if needed */
+    padding-bottom: 1.5rem;
+  }
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns on desktop */
+  }
+
+  .project-card--featured {
+    grid-column: span 2;   /* twice as wide */
+    grid-row: span 2;      /* twice as tall */
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Make the featured image taller */
+  .project-card--featured .project-image-wrap img {
+    height: 360px; /* adjust how big you want */
+    object-fit: cover;
+  }
+}
+
+/* Mobile: always 1 column */
+@media (max-width: 1023px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Featured card becomes normal size on mobile */
+  .project-card--featured {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .project-card--featured .project-image-wrap img {
+    height: 240px;
+  }
+}
+
+
+/* =============== CLICK-TO-ZOOM IMAGE LIGHTBOX =============== */
+
+.zoomable {
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+  border-radius: 12px;
+}
+
+.zoomable:hover {
+  transform: scale(1.02);
+}
+
+/* FULLSCREEN OVERLAY */
+#image-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+  z-index: 9999;
+}
+
+#image-lightbox img {
+  max-width: 95%;
+  max-height: 90vh;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  animation: fadeIn 0.18s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+.copy-btn {
+  margin-left: 0.6rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  color: #0f172a;
+  background: var(--accent-soft);
+  border: 1px solid rgba(191, 227, 192, 0.7);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.copy-btn:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+.copy-btn.copied {
+  background: #c0e8c4;
+  border-color: #88c794;
+}
