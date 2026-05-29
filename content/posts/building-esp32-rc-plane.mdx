@@ -1,0 +1,52 @@
+---
+title: "Building an ESP32 RC Plane from Scratch"
+date: "2025-03-10"
+tags: ["hardware", "esp32", "embedded"]
+excerpt: "How I went from zero embedded electronics knowledge to flying a remote-controlled plane I built myself — including the crashes."
+---
+
+## Why I started this project
+
+I had been doing small Arduino projects for a while — blinking LEDs, reading temperature sensors, controlling servo motors. But I wanted to build something that actually *moved through the air*. A remote-controlled plane felt like the right challenge: it would force me to learn electronics, aerodynamics, and real-time control systems all at once.
+
+I had no idea how hard it would be.
+
+## Choosing the ESP32
+
+I picked the ESP32 over a standard Arduino because it has built-in Wi-Fi and Bluetooth, which meant I could potentially use a phone as the controller. It also runs at 240MHz — much faster than an Arduino Uno — which matters for control loops that need to run many times per second.
+
+The first few days were just reading datasheets and watching YouTube videos. The ESP32 pinout is not as simple as an Arduino and I spent an embarrassing amount of time figuring out which pins I could actually use for PWM output.
+
+## The control loop
+
+The most interesting part was the flight controller loop. Every 10ms, the code needs to:
+
+1. Read the accelerometer and gyroscope (I used an MPU-6050)
+2. Run the readings through a complementary filter to estimate roll and pitch
+3. Compare the estimated orientation to the target (from controller input)
+4. Apply PID corrections to the motor speeds
+
+Getting the PID tuning right took weeks. Too much proportional gain and the plane would oscillate violently. Too little and it wouldn't respond. The derivative term was the hardest — if the gyro readings were even slightly noisy, the derivative term would amplify the noise into wild outputs.
+
+## CAD and the airframe
+
+I used Fusion 360 to design the fuselage and wing mounts. I had never done CAD before this project. The learning curve was steep but the free student license made it accessible.
+
+The wings are made from foam board — cheap and easy to cut. I used a hot glue gun to attach everything. It is not elegant, but it works.
+
+## The first flight (and crash)
+
+The first real test flight lasted about four seconds before the plane entered a flat spin and hit the ground. The left motor mount had cracked on landing from an earlier ground test, so one motor was slightly angled — enough to cause asymmetric thrust.
+
+I fixed the mount, re-tuned the PID, and tried again. The second flight lasted almost a minute.
+
+## What I learned
+
+This project taught me more than any textbook. Some key lessons:
+
+- **Read the datasheet.** Every hour spent reading saved three hours of debugging.
+- **Test components in isolation.** Test the ESC before connecting the motor. Test the receiver before connecting the flight controller.
+- **PID tuning is an art.** Start with only the P term, get it stable, then add I, then D.
+- **Crashes are part of the process.** The plane broke four times. Each time I understood the system a little better.
+
+The full build log and many more photos are on [Notion](https://messy-lancer-b5f.notion.site/ESP32-RC-Plane-2be819f52866804ba86efb5c2db0bcef?pvs=74).

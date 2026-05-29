@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Site design tokens — prefixed to avoid shadcn conflicts */
+:root {
+  --site-accent: #bfe3c0;
+  --site-accent-soft: #e3f4e7;
+  --site-accent-soft-2: #f0faf3;
+  --site-bg: #f4faf6;
+  --site-text: #1e293b;
+  --site-text-soft: #64748b;
+  --site-bordeaux: #6d0b1c;
+  --site-border: #dbe2e8;
+  --font-family: var(--font-geist-sans), Inter, system-ui, sans-serif;
+  --spacing-base: 1;
+}
+
+.dark {
+  --site-bg: #0f172a;
+  --site-text: #f1f5f9;
+  --site-text-soft: #94a3b8;
+  --site-border: #1e293b;
+  --site-accent-soft-2: #0f1f14;
+  --site-accent-soft: #162b18;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply font-sans;
+  }
+
+  body {
+    background-color: var(--site-bg);
+    color: var(--site-text);
+    min-height: 100vh;
+  }
+
+  /* shadcn CSS variables */
+  :root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --radius: 0.625rem;
+  }
+
+  .dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+  }
+}
+
+@media print {
+  header,
+  footer,
+  nav,
+  .design-toolbar {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: underline;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

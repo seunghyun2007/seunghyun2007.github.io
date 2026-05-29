@@ -1,0 +1,38 @@
+---
+title: "What I Learned from a Week at ITER"
+date: "2023-08-20"
+tags: ["experience", "engineering", "internship"]
+excerpt: "Notes from a short Computer Science internship at the world's largest nuclear fusion experiment — and what surprised me most."
+---
+
+## What is ITER
+
+ITER is an international nuclear fusion experiment being built in Cadarache, in the south of France, about an hour from where I live. It's a joint project between 35 countries — the EU, the US, China, Russia, South Korea, Japan, and India — building a tokamak reactor that is designed to produce more energy than it consumes.
+
+The scope is hard to fully grasp. The machine alone will weigh 23,000 tonnes. The magnet system will generate magnetic fields 280,000 times stronger than Earth's magnetic field. It's been under construction for over a decade and won't produce its first plasma until the late 2020s.
+
+I was there for one week as a Computer Science assistant. I mostly helped with internal documentation and small data processing scripts. I was not working on anything critical.
+
+But being there was useful in ways I didn't expect.
+
+## What surprised me
+
+**The scale of coordination.** I expected the engineering to be impressive. What I didn't expect was how much of the work is coordination. Each of the 35 member countries contributes specific components — the blanket modules come from the EU, the central solenoid from the US, the vacuum vessel sectors from South Korea and Europe. Every interface between systems has to be agreed upon, documented, and tested independently before the pieces can come together.
+
+A physicist I spoke to said something I've thought about since: "The hardest part of ITER is not the physics. The physics we understand. The hardest part is getting 35 countries with different standards and processes to build parts that fit together perfectly."
+
+**Software is everywhere.** I knew in the abstract that modern engineering projects rely heavily on software. But seeing it in person was different. There are teams working on real-time control systems, data acquisition, monitoring dashboards, simulation tools. A lot of the codebase is decades old — written in languages I had never heard of.
+
+**The time scale.** The people working on ITER today will mostly retire before the machine runs at full power. They're building something they won't see finished. I found that oddly motivating.
+
+## What I actually did
+
+My tasks were not glamorous: I helped update a section of an internal documentation wiki, and I wrote a small Python script to parse log files and flag anomalies in test data. Both tasks involved reading a lot of existing documentation and asking a lot of questions.
+
+The most useful thing I did was probably just ask questions. People there were generally happy to explain what they were working on if you asked. I tried to understand at least one new concept each day — how the cryogenic system works, what a quench is in a superconducting magnet, why the plasma facing materials matter.
+
+## What I took from it
+
+I left with a clearer sense that big engineering problems require big institutional coordination, not just technical skill. And that software engineering is not a separate thing from "real engineering" — it's deeply embedded in how modern physical systems are designed, built, and operated.
+
+I also left thinking I should learn more about control systems. The challenge of keeping a plasma stable inside a magnetic field — responding to instabilities in real time — is essentially a very hard control theory problem. That's a thread I'm still pulling on.
