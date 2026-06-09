@@ -160,23 +160,23 @@ export function Navbar() {
 
       {/* ── Mobile bottom nav ── */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[var(--site-bg)]/97 backdrop-blur-md border-t border-[var(--site-border)]">
-        <div className="flex items-center justify-around px-2 h-16 safe-area-inset-bottom">
+        <div className="flex items-center justify-around px-1 h-16 safe-area-inset-bottom">
           {NAV_LINKS.map(({ href, label, icon }) => {
             const active = isActive(href)
             return (
               <Link
                 key={href}
                 href={href}
-                className={`flex flex-col items-center gap-0.5 px-2 py-1 min-w-0 transition-colors ${
+                className={`flex flex-col items-center gap-0.5 px-1 py-1 min-w-0 flex-1 transition-colors ${
                   active
                     ? 'text-[var(--site-bordeaux)]'
                     : 'text-[var(--site-text-soft)] hover:text-[var(--site-text)]'
                 }`}
               >
-                <span className={`transition-transform ${active ? 'scale-110' : ''}`}>
+                <span className={`transition-transform [&>svg]:w-[17px] [&>svg]:h-[17px] ${active ? 'scale-110' : ''}`}>
                   {icon}
                 </span>
-                <span className={`text-[10px] leading-none font-medium truncate ${active ? 'font-semibold' : ''}`}>
+                <span className={`text-[9px] leading-none font-medium truncate w-full text-center ${active ? 'font-semibold' : ''}`}>
                   {label}
                 </span>
               </Link>
