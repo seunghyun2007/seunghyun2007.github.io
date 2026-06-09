@@ -82,6 +82,44 @@
   }
 }
 
+/* Periodic table practice animations */
+@keyframes input-shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+@keyframes cell-fill {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes cell-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 2px #22c55e, 0 0 6px 1px rgba(34, 197, 94, 0.35);
+    background-color: rgba(34, 197, 94, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 0 3px #16a34a, 0 0 12px 3px rgba(22, 163, 74, 0.5);
+    background-color: rgba(34, 197, 94, 0.25);
+  }
+}
+
+.input-shake {
+  animation: input-shake 0.45s ease-in-out;
+}
+
+.cell-fill-in {
+  animation: cell-fill 0.3s ease-out;
+}
+
+.cell-active {
+  border: 2px solid #22c55e;
+  animation: cell-pulse 0.9s ease-in-out infinite;
+}
+
 @media print {
   header,
   footer,
