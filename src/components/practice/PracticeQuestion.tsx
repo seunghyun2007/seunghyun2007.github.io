@@ -27,12 +27,6 @@ export interface DProps {
 
 export type PracticeQuestionProps = SpProps | DProps
 
-// Scroll input into view after keyboard animation finishes (mobile only)
-function scrollToInput(el: HTMLElement | null) {
-  if (!el || typeof window === 'undefined' || window.innerWidth >= 640) return
-  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 320)
-}
-
 // ── s/p block: single combined input ──────────────────────────────────────
 
 function SpPractice(props: SpProps) {
@@ -41,14 +35,12 @@ function SpPractice(props: SpProps) {
 
   useEffect(() => {
     setValue('')
-    inputRef.current?.focus()
-    scrollToInput(inputRef.current)
+    inputRef.current?.focus({ preventScroll: true })
   }, [])
 
   useEffect(() => {
     if (!props.shaking && props.revealed === null) {
-      inputRef.current?.focus()
-      scrollToInput(inputRef.current)
+      inputRef.current?.focus({ preventScroll: true })
     }
   }, [props.shaking, props.revealed])
 
@@ -127,14 +119,12 @@ function DPractice(props: DProps) {
 
   useEffect(() => {
     setValue('')
-    inputRef.current?.focus()
-    scrollToInput(inputRef.current)
+    inputRef.current?.focus({ preventScroll: true })
   }, [props.prompt])
 
   useEffect(() => {
     if (!props.shaking && props.revealed === null) {
-      inputRef.current?.focus()
-      scrollToInput(inputRef.current)
+      inputRef.current?.focus({ preventScroll: true })
     }
   }, [props.shaking, props.revealed])
 
