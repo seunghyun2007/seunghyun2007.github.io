@@ -275,9 +275,10 @@ export function PeriodicTablePractice() {
           {/* Order toggle */}
           <div className="flex items-center gap-1 rounded-full border border-[var(--site-border)] p-0.5 text-xs">
             <button
+              type="button"
               onClick={() => !ordered || dispatch({ type: 'TOGGLE_ORDER' })}
               className={[
-                'px-3 py-1 rounded-full transition-colors',
+                'px-4 py-2 rounded-full transition-colors min-h-[36px]',
                 !ordered
                   ? 'bg-[var(--site-accent)] text-[var(--site-text)] font-semibold'
                   : 'text-[var(--site-text-soft)] hover:text-[var(--site-text)]',
@@ -286,9 +287,10 @@ export function PeriodicTablePractice() {
               ⇅ Random
             </button>
             <button
+              type="button"
               onClick={() => ordered || dispatch({ type: 'TOGGLE_ORDER' })}
               className={[
-                'px-3 py-1 rounded-full transition-colors',
+                'px-4 py-2 rounded-full transition-colors min-h-[36px]',
                 ordered
                   ? 'bg-[var(--site-accent)] text-[var(--site-text)] font-semibold'
                   : 'text-[var(--site-text-soft)] hover:text-[var(--site-text)]',
@@ -343,8 +345,9 @@ export function PeriodicTablePractice() {
                 {ordered ? '↓ in order' : '⇅ random'}
               </span>
               <button
+                type="button"
                 onClick={() => dispatch({ type: 'RESTART' })}
-                className="text-xs px-3 py-1 rounded border border-[var(--site-border)] text-[var(--site-text-soft)] hover:text-[var(--site-text)] transition-colors"
+                className="text-xs px-3 py-2 sm:py-1 rounded border border-[var(--site-border)] text-[var(--site-text-soft)] hover:text-[var(--site-text)] transition-colors min-h-[36px]"
               >
                 ← Modes
               </button>
@@ -355,6 +358,7 @@ export function PeriodicTablePractice() {
           <PeriodicTableGrid
             completedSymbols={completedSet}
             pulsingSymbol={phase === 'practice' ? (currentElement?.symbol ?? null) : null}
+            mode={mode}
           />
 
           {/* Practice */}
@@ -418,15 +422,17 @@ export function PeriodicTablePractice() {
               </div>
               <div className="flex gap-3">
                 <button
+                  type="button"
                   autoFocus
                   onClick={() => dispatch({ type: 'SELECT_MODE', mode })}
-                  className="px-5 py-2.5 rounded-lg bg-[var(--site-accent)] text-[var(--site-text)] text-sm font-medium hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-[var(--site-accent)]"
+                  className="px-5 py-3 sm:py-2.5 rounded-lg bg-[var(--site-accent)] text-[var(--site-text)] text-sm font-medium hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-[var(--site-accent)] min-h-[44px]"
                 >
                   Play again
                 </button>
                 <button
+                  type="button"
                   onClick={() => dispatch({ type: 'RESTART' })}
-                  className="px-5 py-2.5 rounded-lg border border-[var(--site-border)] text-[var(--site-text-soft)] text-sm hover:text-[var(--site-text)] transition-colors"
+                  className="px-5 py-3 sm:py-2.5 rounded-lg border border-[var(--site-border)] text-[var(--site-text-soft)] text-sm hover:text-[var(--site-text)] transition-colors min-h-[44px]"
                 >
                   ← Modes
                 </button>

@@ -2,16 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-// ── prop types ─────────────────────────────────────────────────────────────
-
 export interface SpProps {
   variant: 'sp'
-  onInput: (v: string) => void        // called on every keystroke (live check)
-  onManualSubmit: (v: string) => void // called on Enter (wrong-attempt if still wrong)
+  onInput: (v: string) => void
+  onManualSubmit: (v: string) => void
   onContinue: () => void
   shaking: boolean
   hint: string | null
-  revealed: string | null             // e.g. "H — Hydrogen"
+  revealed: string | null
 }
 
 export interface DProps {
@@ -29,20 +27,29 @@ export interface DProps {
 
 export type PracticeQuestionProps = SpProps | DProps
 
+// Scroll input into view after keyboard animation finishes (mobile only)
+function scrollToInput(el: HTMLElement | null) {
+  if (!el || typeof window === 'undefined' || window.innerWidth >= 640) return
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'center' }), 320)
+}
+
 // ── s/p block: single combined input ──────────────────────────────────────
 
 function SpPractice(props: SpProps) {
   const [value, setValue] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Reset on new element (parent changes key)
   useEffect(() => {
     setValue('')
     inputRef.current?.focus()
+    scrollToInput(inputRef.current)
   }, [])
 
   useEffect(() => {
-    if (!props.shaking && props.revealed === null) inputRef.current?.focus()
+    if (!props.shaking && props.revealed === null) {
+      inputRef.current?.focus()
+      scrollToInput(inputRef.current)
+    }
   }, [props.shaking, props.revealed])
 
   const handleChange = (raw: string) => {
@@ -70,9 +77,10 @@ function SpPractice(props: SpProps) {
             <p className="text-xl font-semibold text-orange-700 dark:text-orange-300">{props.revealed}</p>
           </div>
           <button
+            type="button"
             onClick={props.onContinue}
             autoFocus
-            className="px-5 py-2 rounded-lg bg-[var(--site-accent)] text-[var(--site-text)] text-sm font-medium hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-[var(--site-accent)]"
+            className="px-6 py-3 sm:py-2 rounded-lg bg-[var(--site-accent)] text-[var(--site-text)] text-sm font-medium hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-[var(--site-accent)] min-h-[44px]"
           >
             Continue →
           </button>
@@ -85,11 +93,14 @@ function SpPractice(props: SpProps) {
             value={value}
             onChange={e => handleChange(e.target.value)}
             onKeyDown={handleKey}
-            autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false}
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck={false}
             placeholder="symbol and name — e.g. H Hydrogen"
             className={[
               'w-full rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)]',
-              'text-[var(--site-text)] text-center text-lg px-4 py-3',
+              'text-[var(--site-text)] text-center text-base sm:text-lg px-4 py-3',
               'placeholder:text-[var(--site-text-soft)] focus:outline-none focus:ring-2 focus:ring-[var(--site-accent)] transition-colors',
               props.shaking ? 'input-shake' : '',
             ].join(' ')}
@@ -117,10 +128,14 @@ function DPractice(props: DProps) {
   useEffect(() => {
     setValue('')
     inputRef.current?.focus()
+    scrollToInput(inputRef.current)
   }, [props.prompt])
 
   useEffect(() => {
-    if (!props.shaking && props.revealed === null) inputRef.current?.focus()
+    if (!props.shaking && props.revealed === null) {
+      inputRef.current?.focus()
+      scrollToInput(inputRef.current)
+    }
   }, [props.shaking, props.revealed])
 
   const handleChange = (raw: string) => {
@@ -161,11 +176,14 @@ function DPractice(props: DProps) {
             onChange={e => handleChange(e.target.value)}
             onKeyDown={handleKey}
             autoFocus
-            autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck={false}
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck={false}
             placeholder="Type your answer…"
             className={[
               'w-full rounded-lg border border-[var(--site-border)] bg-[var(--site-bg)]',
-              'text-[var(--site-text)] text-center text-lg px-4 py-3',
+              'text-[var(--site-text)] text-center text-base sm:text-lg px-4 py-3',
               'placeholder:text-[var(--site-text-soft)] focus:outline-none focus:ring-2 focus:ring-[var(--site-accent)] transition-colors',
               props.shaking ? 'input-shake' : '',
             ].join(' ')}
@@ -187,9 +205,10 @@ function DPractice(props: DProps) {
       {props.revealed !== null && (
         <div className="flex flex-col items-center gap-2">
           <button
+            type="button"
             onClick={props.onContinue}
             autoFocus
-            className="px-5 py-2 rounded-lg bg-[var(--site-accent)] text-[var(--site-text)] text-sm font-medium hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-[var(--site-accent)]"
+            className="px-6 py-3 sm:py-2 rounded-lg bg-[var(--site-accent)] text-[var(--site-text)] text-sm font-medium hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-[var(--site-accent)] min-h-[44px]"
           >
             Continue →
           </button>
