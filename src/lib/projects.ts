@@ -2,6 +2,17 @@ import type { Project } from './types'
 
 export const PROJECTS: Project[] = [
   {
+    id: 'underwood-knows-best',
+    title: 'Yonsei AI Video Contest',
+    summary:
+      'An AI-generated short-form video where Yonsei\'s founder Horace Grant Underwood comes back to give freshmen survival tips — voiced, scripted, and assembled entirely with AI tools. Won 장려상 (Encouragement Award, ₩100,000) at the 2026 Yonsei AX Start AI Short-Form Video Contest.',
+    stack: ['Higgsfield AI', 'Claude', 'DaVinci Resolve', 'Suno AI', 'OBS Studio'],
+    image: '/assets/underwood-award.jpeg',
+    notionUrl:
+      'https://app.notion.com/p/AI-Video-Competition-37e819f52866801f81cee44ba466c7c5?source=copy_link',
+    tags: ['ai', 'video', 'creative'],
+  },
+  {
     id: 'esp32-rc-plane',
     title: 'ESP32 RC Plane',
     summary:

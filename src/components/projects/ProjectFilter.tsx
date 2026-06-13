@@ -9,6 +9,7 @@ const TAGS = [
   { value: 'hardware', label: 'Hardware' },
   { value: 'electronics', label: 'Electronics' },
   { value: 'academic', label: 'Academic' },
+  { value: 'ai', label: 'AI / Creative' },
 ]
 
 interface Props {
